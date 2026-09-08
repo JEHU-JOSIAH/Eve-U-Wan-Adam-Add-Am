@@ -1,0 +1,14 @@
+{
+  "name": "eve-u-wan-adam-add-am",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/core.test.js && node test/v7.test.js && node test/bank.test.js && node test/intelligence.test.js && node test/v72.test.js && node test/v8.test.js && node test/rounds.test.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1"
+  }
+}
