@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import {QUESTIONS,CONSISTENCY_TESTS,CONSEQUENCE_SCENARIOS} from '../src/content.js';
+import {blankPlayer,initializeDirector,chooseNextScenario,applyAnswer,recordDirectorTurn,directorState,gpaSummary} from '../src/engine.js';
+let p=initializeDirector(blankPlayer('x','Test','man'));
+assert.equal(gpaSummary(p).gpa,0);
+let first=chooseNextScenario(p,{base:QUESTIONS,consistency:CONSISTENCY_TESTS,consequence:CONSEQUENCE_SCENARIOS});
+assert.ok(first?.question);
+p=applyAnswer(p,first.question,0);
+p=recordDirectorTurn(p,first.question,first.source,first.reason);
+let second=chooseNextScenario(p,{base:QUESTIONS,consistency:CONSISTENCY_TESTS,consequence:CONSEQUENCE_SCENARIOS});
+assert.ok(second?.question);
+assert.notEqual(first.question.id,second.question.id);
+assert.equal(directorState(p).turn,1);
+console.log('v7 tests passed');
