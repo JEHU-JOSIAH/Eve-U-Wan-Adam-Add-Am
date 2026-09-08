@@ -118,3 +118,17 @@ Round 4 adds 12 actual scenarios focused on competing responsibilities and high-
 Creator: **Ali Kanadi**, CEO & Founder, **Kenomicsalley**  
 Email: **kanadialimd@gmail.com**  
 Phone: **+2349016273828**
+
+## Round 6 Fix & Redesign Notes (this build)
+
+**Root cause of "nothing opens" bug:** `public/index.html` loads its game logic as an ES module from `/src/content.js` and `/src/engine.js`, but `server.js` only served the `public/` folder as static files. Every request for `/src/*` returned a 404, the module import failed silently in the browser, and **none of the `window.*` functions the buttons call (`startSetup`, `show`, `hostRoom`, `joinRoom`, etc.) were ever defined** — so every button appeared completely dead. Fixed by adding `app.use('/src', express.static(...))` in `server.js`.
+
+**Secondary bug fixed:** the module script called `applyConsequenceAnswer(...)` during Consequence Scenarios but never imported it from `engine.js`, which would have thrown a `ReferenceError` and frozen the game the first time a consequence scenario appeared.
+
+**UI:** full visual redesign (serif/sans type pairing, gold/navy palette, card elevation, custom nav bar with icons) to replace the previous flat/default look.
+
+**Practice Solo:** now has its own dedicated landing page (`#practiceSolo`) with an icon and explanation, reached from the home grid and the top nav, instead of dropping straight into the shared name/gender form.
+
+**New: Meditation.** `src/meditation.js` + a new `#meditation` page/nav tab. Contains 16 original reflections (4 each for Waiting / Dating / Engaged / Married) paired with full King James Version Scripture text and a "ponder" prompt. These are original writing for this app, thematically inspired by the seasons-of-relationship teaching found in *Waiting and Dating* (Myles Munroe) and *Single, Dating, Engaged, Married* (Ben Stuart) — no text from those copyrighted books is reproduced. The page credits both books and encourages readers to read them directly.
+
+**To run:** `npm install` (needs network access) then `npm start`, open `http://localhost:3000`. All fixes verified by running the actual `content.js`/`engine.js` modules headlessly through full solo and two-player simulations with no runtime errors.

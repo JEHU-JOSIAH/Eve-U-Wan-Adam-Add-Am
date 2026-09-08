@@ -1,5 +1,5 @@
 import express from 'express';import http from 'http';import { Server } from 'socket.io';import path from 'path';import { fileURLToPath } from 'url';const __filename=fileURLToPath(import.meta.url);const __dirname=path.dirname(__filename);
-const app=express(),server=http.createServer(app),io=new Server(server),rooms=new Map();app.use(express.static(path.join(__dirname,'public')));
+const app=express(),server=http.createServer(app),io=new Server(server),rooms=new Map();app.use(express.static(path.join(__dirname,'public')));app.use('/src',express.static(path.join(__dirname,'src')));
 const makeCode=()=>Math.random().toString(36).slice(2,7).toUpperCase();
 function newRoom(max,host){return{host,max,status:'lobby',round:0,roundSize:12,players:[host],answers:{},history:[],startedAt:null};}
 function publicRoom(r){return{host:r.host.id,max:r.max,status:r.status,round:r.round,players:r.players.map(p=>({id:p.id,name:p.name,gender:p.gender,score:p.score||0,answered:!!r.answers[p.id]}))};}
