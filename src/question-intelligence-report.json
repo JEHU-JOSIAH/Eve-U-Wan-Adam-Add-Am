@@ -1,0 +1,50 @@
+{
+  "version": "7.1",
+  "questions": 72,
+  "categories": {
+    "Emotional Maturity": 6,
+    "Communication": 6,
+    "Biblical Wisdom": 6,
+    "Financial Literacy": 6,
+    "Family & Culture": 6,
+    "Conflict & Forgiveness": 6,
+    "Parenting & Children": 6,
+    "Leadership & Partnership": 6,
+    "Boundaries & Safety": 6,
+    "Purpose & Future": 6,
+    "Character & Integrity": 6,
+    "Health & Major Decisions": 6
+  },
+  "phases": {
+    "repair": 8,
+    "foundation": 39,
+    "pressure": 24,
+    "stakes": 1
+  },
+  "stakes": {
+    "low": 35,
+    "medium": 12,
+    "high": 24,
+    "critical": 1
+  },
+  "fields": [
+    "phase",
+    "primaryDimension",
+    "secondaryDimensions",
+    "decisionType",
+    "decisionClasses",
+    "stakes",
+    "hardness",
+    "gpaWeight",
+    "biblicalPrinciple",
+    "scriptureRefs",
+    "triggerTags",
+    "signalTags",
+    "consequenceThread",
+    "consistencyTags",
+    "noveltyTags",
+    "reflection",
+    "conversationPrompt",
+    "safetyNotes"
+  ]
+}
