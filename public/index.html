@@ -1,0 +1,157 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Eve U Wan Adam Add Am — Core Engine v7</title><script src="/socket.io/socket.io.js"></script><style>:root{--bg:#07111f;--card:#101d30;--gold:#e8c36b;--muted:#aab8ca;--line:#263950;--green:#4bd18c;--red:#ff6677;--orange:#ffad5c;--yellow:#f4d35e}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#17324e,#07111f 62%);color:#f7f9fc;font-family:system-ui,-apple-system,Segoe UI,sans-serif}.wrap{max-width:960px;margin:auto;padding:18px}.hero{text-align:center;padding:25px 8px 18px}.hero small{color:var(--gold);font-weight:800;letter-spacing:.2em}.hero h1{font-size:clamp(36px,8vw,68px);margin:8px 0}.hero p{color:var(--muted);font-size:18px}.card{background:rgba(16,29,48,.97);border:1px solid var(--line);border-radius:20px;padding:22px;margin:14px 0;box-shadow:0 12px 40px #0003}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.btn,.input,.opt{width:100%;padding:14px;border-radius:13px;border:1px solid var(--line);font-size:16px}.btn{background:#172a43;color:#fff;font-weight:800;cursor:pointer}.btn:disabled{opacity:.5}.primary{background:var(--gold);color:#19130a}.input{background:#081625;color:#fff}.opt{text-align:left;background:#13263e;color:#fff;margin:8px 0;cursor:pointer;line-height:1.4}.opt:hover{border-color:var(--gold)}.hidden{display:none}.round-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.round-actions .btn{flex:1;min-width:180px}.roundscore{font-size:42px;font-weight:900;line-height:1.05}.roundtable{width:100%;border-collapse:collapse}.roundtable th,.roundtable td{padding:9px;border-bottom:1px solid var(--line);text-align:left}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.between{justify-content:space-between}.pill{background:#20354e;border-radius:99px;padding:7px 10px;color:#d9e2ee;font-size:12px;font-weight:800}.meter{height:9px;background:#06101c;border-radius:99px;overflow:hidden;margin:12px 0}.meter i{display:block;height:100%;background:var(--gold);width:0}.q{font-size:clamp(22px,4.2vw,31px);line-height:1.35;margin:18px 0}.note{color:var(--muted);line-height:1.65}.quote{border-left:3px solid var(--gold);padding:12px 15px;color:#dce6f1;font-style:italic;line-height:1.6}.stat{margin:13px 0}.stat small{display:flex;justify-content:space-between;color:var(--muted);gap:10px}.flag{display:inline-block;padding:4px 8px;border-radius:999px;font-size:11px;font-weight:800;margin:3px}.green{background:#153c2d;color:#75e7ad}.yellow{background:#463d17;color:#ffe98b}.orange{background:#4a2d17;color:#ffc17c}.red{background:#4a1d26;color:#ff91a0}.reportgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}.dimcard{border:1px solid var(--line);border-radius:15px;padding:14px;background:#0c192a}.small{font-size:13px}.privacy{background:#0b1828;border-radius:14px;padding:12px;color:#b9c8d9;margin:10px 0}.center{text-align:center}footer{text-align:center;color:#71839a;padding:28px;font-size:13px}</style></head><body><div class="wrap"><header class="hero"><small>K E N O M I C S A L L E Y</small><h1>Eve U Wan Adam Add Am</h1><p>Hard questions. Honest conversations. Biblical wisdom. One round at a time.</p></header>
+<section id="home" class="card"><h2>Before you choose someone better, try and better your self.</h2><p class="note">A relationship discernment game built from the Love With Purpose foundation. Each round presents 12 scenarios, displays your grading and scores, then lets you continue with everything you have already revealed—or end the journey.</p><div class="grid"><button class="btn primary" onclick="startSetup('duel')">💛 2-Player Private Assessment</button><button class="btn" onclick="startSetup('solo')">🧭 Practice Solo</button><button class="btn" onclick="show('host')">👥 Host 2–8 Players</button><button class="btn" onclick="show('join')">🔑 Join Room</button></div><div class="privacy center"><b>Created by Ali Kanadi</b><br><span class="small">CEO &amp; Founder, Kenomicsalley</span><br><span class="small">Email: kanadialimd@gmail.com · Phone: +2349016273828</span></div></section>
+<section id="setup" class="card hidden"><h2 id="setupTitle">Assessment Setup</h2><p class="note" id="setupNote"></p><div class="grid"><input id="pname" class="input" placeholder="Your name"><select id="gender" class="input"><option value="unspecified">Gender not specified</option><option value="man">Man</option><option value="woman">Woman</option></select></div><button class="btn primary" onclick="beginAssessment()">Begin</button><button class="btn" onclick="show('home')">Back</button></section>
+<section id="game" class="card hidden"><div class="row between"><span id="cat" class="pill"></span><span id="num" class="pill"></span></div><div class="meter"><i id="bar"></i></div><div class="privacy" id="privacy"></div><div id="q" class="q"></div><div id="qi" class="note hidden"></div><div id="opts"></div><div id="feedback" class="quote hidden"></div><div id="reflection" class="quote hidden"></div><button id="continue" class="btn primary hidden" onclick="continueAfterReflection()">Continue</button></section>
+<section id="roundReport" class="card hidden"><h2 id="roundTitle">Round Complete</h2><p class="note" id="roundIntro"></p><div id="roundBody"></div><div class="round-actions"><button id="roundContinue" class="btn primary" onclick="continueRound()">Continue to Next Round</button><button id="roundEnd" class="btn" onclick="endJourney()">End Journey & View Report</button></div></section>
+<section id="report" class="card hidden"><h2 id="reportTitle">Discernment Report</h2><p class="note" id="reportIntro"></p><div id="reportBody"></div><button class="btn primary" onclick="resetApp()">New Journey</button></section>
+<section id="host" class="card hidden"><h2>Host a Room</h2><input id="hn" class="input" placeholder="Your display name"><div class="row"><button class="btn primary" onclick="hostRoom(2)">2 players</button><button class="btn primary" onclick="hostRoom(8)">Up to 8</button></div><button class="btn" onclick="show('home')">Back</button></section>
+<section id="join" class="card hidden"><h2>Join a Room</h2><div class="grid"><input id="jn" class="input" placeholder="Your display name"><input id="jc" class="input" placeholder="Room code"></div><button class="btn primary" onclick="joinRoom()">Join</button><button class="btn" onclick="show('home')">Back</button><p id="msg" class="note"></p></section>
+<section id="lobby" class="card hidden"><h2>Room <span id="code"></span></h2><p class="note">Share the code. Everyone answers from his or her own device. Answers are kept private until the round is complete.</p><div id="people"></div><button id="startRoom" class="btn primary hidden" onclick="socket.emit('start',room)">Start Challenge</button></section>
+<footer><div><b>Eve U Wan Adam Add Am</b></div><div>Created by <b>Ali Kanadi</b> · CEO &amp; Founder, Kenomicsalley</div><div>Email: <a href="mailto:kanadialimd@gmail.com" style="color:inherit">kanadialimd@gmail.com</a> · +2349016273828</div><div style="margin-top:8px">Love should not make difficult conversations disappear. It should make truth safe enough to discuss.</div></footer></div>
+<script type="module">
+import {QUESTIONS,ROUND_BANKS,BIBLE_REFLECTIONS,CONSISTENCY_TESTS,CONSEQUENCE_SCENARIOS} from '/src/content.js';
+import {blankPlayer,applyAnswer,comparePlayers,comparisonSummary,discernmentSummary,LABELS,scoreBand,reflectionFor,buildIntelligenceReport,conversationPrompts,decisionFeedback,detectPatterns,buildConsistencyTests,gpaSummary,initializeDirector,chooseNextScenario,recordDirectorTurn,directorState} from '/src/engine.js';
+const socket=io();
+let mode=null,player=null,partner=null,index=0,room=null,waiting=false,duelStage=1,plan=[],baseCount=0,testsAdded=false,consequencesAdded=false,totalTurns=18;let roundNumber=1,roundSize=12,roundStartSnapshot=null,roundResults=[];let duelPlayer1=null,duelPlayer2=null,duelRoundStart1=null,duelRoundStart2=null;let multiRoundWaiting=false;
+const roundBase=()=>ROUND_BANKS[roundNumber]||QUESTIONS;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+window.show=id=>{document.querySelectorAll('section').forEach(s=>s.classList.add('hidden'));$(id).classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'})};
+window.startSetup=m=>{mode=m;duelStage=1;partner=null;player=null;roundNumber=1;roundSize=12;roundStartSnapshot=null;roundResults=[];multiRoundWaiting=false;duelPlayer1=null;duelPlayer2=null;duelRoundStart1=null;duelRoundStart2=null;$('setupTitle').textContent=m==='duel'?'2-Player Private Assessment':'Solo Practice';$('setupNote').textContent=m==='duel'?'Player 1: choose MAN or WOMAN. Player 2 will answer privately afterwards and must be the opposite gender for the two-person assessment.':'Use this mode to learn the decision engine before playing with someone else.';$('pname').value='';$('gender').value='unspecified';show('setup')};
+window.beginAssessment=()=>{
+ const n=$('pname').value.trim(),g=$('gender').value;
+ if(!n)return alert('Enter your name.');
+ if(mode==='duel' && g==='unspecified')return alert('For the two-person assessment, choose Man or Woman.');
+ if(mode==='duel' && duelStage===2 && partner && g===partner.gender)return alert('The two-person assessment needs one man and one woman. Please choose the opposite gender.');
+ if(mode==='duel' && duelStage===1 && duelPlayer1){player=duelPlayer1;}else if(mode==='duel' && duelStage===2 && duelPlayer2){player=duelPlayer2;}else{player=initializeDirector(blankPlayer('local-'+duelStage,n,g));}player.name=n;player.gender=g;index=0;waiting=false;plan=[];roundStartSnapshot=JSON.parse(JSON.stringify(player));if(mode==='duel'){if(duelStage===1)duelRoundStart1=roundStartSnapshot;else duelRoundStart2=roundStartSnapshot;}baseCount=0;testsAdded=false;consequencesAdded=false;
+ const first=chooseNextScenario(player,{base:roundBase(),consistency:CONSISTENCY_TESTS,consequence:CONSEQUENCE_SCENARIOS});
+ if(!first)return alert('The scenario director could not start.');
+ plan.push({...first.question,directorSource:first.source,directorReason:first.reason});
+ baseCount=plan.length; show('game');renderQuestion();
+};
+function shuffledOptions(q){return q.options.map((o,i)=>({o,i})).sort(()=>Math.random()-.5)}
+function renderQuestion(){
+ const q=plan[index]; const isTest=!!q.consistencyTest; const isCon=!!q.consequenceScenario; $('cat').textContent=q.category;$('num').textContent=`Round ${roundNumber} · Scenario ${index+1} / ${roundSize}`;$('bar').style.width=(Math.min(100,((index+1)/roundSize)*100))+'%';
+ $('privacy').textContent=isCon?'🎬 Consequence Scenario — an earlier choice has shaped this situation.':(isTest?'🧠 Consistency Test — the engine is checking whether your later decision matches an earlier position.':(mode==='duel'?'🔒 Private answer: '+player.name+' — answer honestly. The other player will answer separately.':'🧭 Practice mode — answer as you would in real life.'));
+ $('feedback').classList.remove('hidden');$('feedback').innerHTML='<b>🧭 Scenario Director</b><br>'+esc(q.directorReason||'The Director is balancing your assessment.');
+ $('q').textContent=q.prompt; $('qi').innerHTML=`<b>Why this matters:</b> ${esc(q.intelligence?.biblicalPrinciple||'Use wisdom, love and responsibility.')}<br><span class="small">Biblical anchors: ${esc((q.intelligence?.scriptureRefs||[]).join(', '))} · Stakes: ${esc(q.intelligence?.stakes||'low')}</span>`; $('qi').classList.remove('hidden'); $('feedback').classList.add('hidden');$('reflection').classList.add('hidden');$('continue').classList.add('hidden');
+ $('opts').innerHTML=shuffledOptions(q).map(({o,i})=>`<button class="opt" data-i="${i}">${esc(o.text)}</button>`).join('');
+ document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>pick(Number(b.dataset.i)));
+}
+function pick(i){
+ if(waiting)return;waiting=true;const q=plan[index];player=q.consequenceScenario?applyConsequenceAnswer(player,q,i):applyAnswer(player,q,i);const opt=q.options[i];
+ const fb=decisionFeedback(q,opt);
+ $('opts').innerHTML='';$('feedback').classList.remove('hidden');
+ $('feedback').innerHTML='<b>Decision impact</b><br>'+fb.map(x=>`${esc(x.label)}: <b>${x.delta>0?'strengthening':'needs attention'}</b>`).join(' · ');
+ const patterns=detectPatterns(player);const latest=patterns.find(p=>p.count>0 && (p.id===opt.evidence));
+ if(latest) $('feedback').innerHTML+='<br><br><span class="small">⚠️ Pattern signal: '+esc(latest.title)+'</span>';
+ if(q.consistencyTest){const c=player.relationshipMemory?.consistency?.tests?.at(-1); if(c){$('feedback').innerHTML+='<br><br><span class="small">'+(c.aligned?'✅ Consistency signal: this decision matches your earlier position.':'⚠️ Consistency signal: this decision differs from your earlier position. That is a conversation point, not an automatic verdict.')+'</span>';}}
+ $('reflection').classList.remove('hidden');$('reflection').innerHTML='<b>Pause & reflect</b><br>'+esc(reflectionFor(q,opt))+'<br><br><span class="small">'+esc(BIBLE_REFLECTIONS[index%BIBLE_REFLECTIONS.length])+'</span>';
+ $('continue').classList.remove('hidden');
+}
+window.continueAfterReflection=()=>{
+ waiting=false;
+ player=recordDirectorTurn(player,plan[index],plan[index].directorSource,plan[index].directorReason);
+ if(index+1>=roundSize){if(mode==='duel') {if(duelStage===1)showDuelPlayerRoundReport(); else showDuelCombinedRoundReport();} else showRoundReport();return}
+ index++;
+ const next=chooseNextScenario(player,{base:roundBase(),consistency:CONSISTENCY_TESTS,consequence:CONSEQUENCE_SCENARIOS});
+ if(!next){showRoundReport();return}
+ plan[index]={...next.question,directorSource:next.source,directorReason:next.reason};
+ renderQuestion();
+};
+function roundScore(p,startOverride=null){
+ const g=gpaSummary(p);
+ const start=startOverride||roundStartSnapshot;
+ const roundCats=Object.keys(p.profile).map(d=>{const now=p.profile[d],before=start?.profile?.[d]||{earnedPoints:0,possiblePoints:0};const earned=Math.max(0,(now.earnedPoints||0)-(before.earnedPoints||0));const possible=Math.max(0,(now.possiblePoints||0)-(before.possiblePoints||0));return possible?earned/possible*100:null}).filter(x=>x!==null);
+ const rp=roundCats.length?Math.round(roundCats.reduce((a,b)=>a+b,0)/roundCats.length):0;
+ const rg=gradeFromPercent(rp);
+ return {gpa:g.gpa,letter:g.letter,percent:g.percent,roundGpa:rg.gpa,roundLetter:rg.letter,roundPercent:rp,categories:g.categories};
+}
+function gradeFromPercent(p){if(p>=90)return {letter:'A',gpa:4};if(p>=85)return {letter:'A-',gpa:3.7};if(p>=80)return {letter:'B+',gpa:3.3};if(p>=75)return {letter:'B',gpa:3};if(p>=70)return {letter:'B-',gpa:2.7};if(p>=65)return {letter:'C+',gpa:2.3};if(p>=60)return {letter:'C',gpa:2};if(p>=55)return {letter:'C-',gpa:1.7};if(p>=50)return {letter:'D',gpa:1};return {letter:'F',gpa:0};}
+function showRoundReport(){
+ const gs=roundScore(player);
+ show('roundReport');
+ $('roundTitle').textContent=`Round ${roundNumber} Complete`;
+ $('roundIntro').textContent=`You completed ${Math.min(roundSize,index+1)} scenarios. Your score carries forward if you continue.`;
+ $('roundBody').innerHTML=`<div class="card center"><div class="small">ROUND ${roundNumber} RELATIONSHIP GPA</div><div class="roundscore">${gs.roundGpa.toFixed(1)} <span class="small">/ 4.0</span></div><div><span class="pill">Round Grade ${gs.roundLetter}</span> <span class="pill">${gs.roundPercent}%</span></div><p class="note"><b>Cumulative:</b> ${gs.gpa.toFixed(1)} / 4.0 · Grade ${gs.letter} · ${gs.percent}%. This cumulative score carries forward.</p></div><h3>Round-by-round progress</h3><table class="roundtable"><thead><tr><th>Round</th><th>Scenarios</th><th>Round GPA</th><th>Grade</th><th>Cumulative</th></tr></thead><tbody>${[...roundResults,{round:roundNumber,scenarios:Math.min(roundSize,index+1),...gs}].map(r=>`<tr><td>${r.round}</td><td>${r.scenarios}</td><td>${Number(r.roundGpa ?? r.gpa).toFixed(1)}</td><td>${esc(r.roundLetter ?? r.letter)}</td><td>${r.percent}%</td></tr>`).join('')}</tbody></table><p class="note"><b>Reflection:</b> What did this round reveal about the way you respond when love, pressure, money, family, faith or future priorities collide?</p>`;
+ $('roundContinue').textContent=`Continue to Round ${roundNumber+1}`;
+ $('roundContinue').onclick=continueRound;
+ $('roundEnd').onclick=endJourney;
+}
+function showDuelPlayerRoundReport(){
+ duelPlayer1=player;
+ const gs=roundScore(player);
+ show('roundReport');
+ $('roundTitle').textContent=`Round ${roundNumber} — Player 1 Complete`;
+ $('roundIntro').textContent=`${player.name} has completed this round privately. Pass the device to Player 2 to answer the same round.`;
+ $('roundBody').innerHTML=`<div class="card center"><div class="small">PLAYER 1 ROUND SCORE</div><div class="roundscore">${gs.roundGpa.toFixed(1)} <span class="small">/ 4.0</span></div><div><span class="pill">Grade ${gs.roundLetter}</span> <span class="pill">${gs.roundPercent}%</span></div><p class="note">Player 2's answers remain private until both players complete the round.</p></div>`;
+ $('roundContinue').textContent='Continue — Pass to Player 2';
+ $('roundContinue').onclick=()=>{partner=duelPlayer1;duelStage=2;index=0;plan=[];waiting=false;roundStartSnapshot=duelPlayer2?JSON.parse(JSON.stringify(duelPlayer2)):null;$('setupTitle').textContent=`Player 2 — Round ${roundNumber}`;$('setupNote').textContent=`Pass the device to Player 2. ${player.name}'s answers remain private. Player 2 must choose the opposite gender.`;$('pname').value='';$('gender').value='unspecified';show('setup')};
+ $('roundEnd').textContent='End Journey';$('roundEnd').onclick=()=>finishDuelHalf();
+}
+let partnerRoundSnapshot=null;
+function showDuelCombinedRoundReport(){
+ duelPlayer2=player;
+ const a=duelPlayer1,b=duelPlayer2,ia=buildIntelligenceReport(a),ib=buildIntelligenceReport(b),cmp=comparisonSummary(a,b);
+ const ga=roundScore(a,duelRoundStart1),gb=roundScore(b,duelRoundStart2);
+ show('roundReport');$('roundTitle').textContent=`Round ${roundNumber} — Both Players Complete`;
+ $('roundIntro').textContent='Both private answers are complete for this round. Now you can see the comparison and decide whether to continue.';
+ $('roundBody').innerHTML=`<div class="grid"><div class="card center"><div class="small">${esc(a.name)}</div><div class="roundscore">${ga.roundGpa.toFixed(1)}</div><span class="pill">${ga.roundLetter} · ${ga.roundPercent}%</span><p class="small">Cumulative ${ga.gpa.toFixed(1)} GPA</p></div><div class="card center"><div class="small">${esc(b.name)}</div><div class="roundscore">${gb.roundGpa.toFixed(1)}</div><span class="pill">${gb.roundLetter} · ${gb.roundPercent}%</span><p class="small">Cumulative ${gb.gpa.toFixed(1)} GPA</p></div></div><div class="card"><b>Alignment signal:</b> ${cmp.alignment}%<p class="note">Differences are conversation points, not automatic verdicts.</p></div>`;
+ $('roundContinue').textContent=`Continue to Round ${roundNumber+1}`;
+ $('roundContinue').onclick=()=>{roundResults.push({round:roundNumber,scenarios:roundSize,aGpa:ga.roundGpa,bGpa:gb.roundGpa,aPercent:ga.percent,bPercent:gb.percent});roundNumber++;duelStage=1;index=0;plan=[];waiting=false;roundStartSnapshot=JSON.parse(JSON.stringify(duelPlayer1));duelRoundStart1=roundStartSnapshot;$('setupTitle').textContent=`Player 1 — Round ${roundNumber}`;$('setupNote').textContent=`Pass the device to ${a.name}. Player 2's answers from the previous round remain private.`;$('pname').value=a.name;$('gender').value=a.gender;show('setup')};
+ $('roundEnd').textContent='End Journey & View Final Report';$('roundEnd').onclick=()=>{partner=duelPlayer1;player=duelPlayer2;finishDuelHalf();};
+}
+window.continueRound=()=>{
+ roundResults.push({round:roundNumber,scenarios:Math.min(roundSize,index+1),...roundScore(player)});
+ roundNumber++; index=0; plan=[]; waiting=false; roundStartSnapshot=JSON.parse(JSON.stringify(player));
+ const first=chooseNextScenario(player,{base:roundBase(),consistency:CONSISTENCY_TESTS,consequence:CONSEQUENCE_SCENARIOS});
+ if(!first){finishSingle();return}
+ plan.push({...first.question,directorSource:first.source,directorReason:first.reason});
+ show('game');renderQuestion();
+};
+window.endJourney=()=>{
+ roundResults.push({round:roundNumber,scenarios:Math.min(roundSize,index+1),...roundScore(player)});
+ if(mode==='duel')finishDuelHalf();else finishSingle();
+};
+function finishSingle(){const intel=buildIntelligenceReport(player);show('report');$('reportTitle').textContent='Your Relationship Intelligence Report';$('reportIntro').textContent='This is a learning and discernment report. It identifies decision patterns worth strengthening or discussing; it is not a marriage verdict.';$('reportBody').innerHTML=renderPlayerReport(player,intel)}
+function finishDuelHalf(){
+ if(duelStage===1){
+  partner=player;duelStage=2;roundNumber=1;roundResults=[];index=0;plan=[];roundStartSnapshot=JSON.parse(JSON.stringify(player));$('setupTitle').textContent='Player 2 Setup';$('setupNote').textContent=`Pass the device to Player 2. ${partner.name}'s answers are complete and private. Player 2 must choose the opposite gender.`;$('pname').value='';$('gender').value='unspecified';show('setup');return;
+ }
+ const a=partner,b=player,ia=buildIntelligenceReport(a),ib=buildIntelligenceReport(b),cmp=comparisonSummary(a,b);show('report');$('reportTitle').textContent='Your Two-Person Relationship Intelligence Report';$('reportIntro').textContent='The comparison highlights alignment and tension. A difference is not automatically a red flag; it tells you where an honest conversation is needed.';$('reportBody').innerHTML=renderPlayerReport(a,ia)+renderPlayerReport(b,ib)+renderComparison(cmp);
+}
+function renderPlayerReport(p,intel){
+ const gs=gpaSummary(p);
+ let html=`<div class="card"><h3>${esc(p.name)}</h3><div class="card center"><div class="small">RELATIONSHIP GPA</div><div style="font-size:52px;font-weight:900;line-height:1.05">${gs.gpa.toFixed(1)} <span class="small">/ 4.0</span></div><div><span class="pill">Grade ${gs.letter}</span> <span class="pill">${gs.percent}% overall</span></div><p class="note">${esc(gs.label)} · Every category started at <b>0</b>. Points are earned through decisions; risk signals are tracked separately.</p></div><p><b>Discernment status:</b> ${intel.summary.recommendation}</p><div class="row"><span class="pill">${intel.answered} decisions</span><span class="pill">${intel.positiveSignals} positive signals</span><span class="pill">${intel.negativeSignals} caution signals</span></div><div class="card"><h4>🧭 Scenario Director</h4><p class="note">Phase: <b>${esc(intel.director?.phase||'foundation')}</b> · Scenarios directed: ${intel.director?.turn||0}</p><p class="note">${esc(intel.director?.lastReason||'The Director balanced the assessment.')}</p></div><h4>Category GPA report</h4><div class="reportgrid">`;
+ for(const d of Object.keys(p.profile)){const x=p.profile[d];const earned=Number(x.earnedPoints)||0;const possible=Number(x.possiblePoints)||0;const pct=possible?Math.round(earned/possible*100):0;const grade=gs.categories.find(c=>c.dimension===d);html+=`<div class="dimcard"><b>${LABELS[d]}</b><div class="meter"><i style="width:${pct}%"></i></div><div class="row"><span>${pct}% · ${grade?grade.grade:'F'} · ${grade?grade.gpa.toFixed(1):'0.0'} GPA</span><span class="pill">${earned}/${possible} pts</span>${['green','yellow','orange','red'].map(f=>x.flags[f]?`<span class="flag ${f}">${f} ${x.flags[f]}</span>`:'').join('')}</div></div>`}
+ html+='</div>';
+ if(intel.strongest.length)html+=`<p class="note"><b>Current strengths:</b> ${intel.strongest.map(d=>LABELS[d]).join(', ')}.</p>`;
+ if(intel.weakest.length)html+=`<p class="note"><b>Priority growth areas:</b> ${intel.weakest.map(d=>LABELS[d]).join(', ')}.</p>`;
+ if(intel.patterns.length){html+='<div class="card"><h4>Pattern signals</h4>'+intel.patterns.slice(0,5).map(p=>`<p><span class="flag ${p.severity}">${p.severity}</span> <b>${esc(p.title)}</b><br><span class="note">${esc(p.message)}</span></p>`).join('')+'</div>'}
+ const mem=intel.memory, cs=intel.consistency; const con=intel.consequence; html+='<div class="card"><h4>Consequence & Scenario State</h4><p class="note">The engine tracked '+con.applied+' consequence scenario(s). Earlier decisions can change the situations you are asked to face later.</p><div class="reportgrid">'+con.state.map(x=>`<div class="dimcard"><b>${esc(x.label)}</b><div class="meter"><i style="width:${x.score}%"></i></div><span>${x.score}/100</span></div>`).join('')+'</div></div><div class="card"><h4>Relationship Memory</h4><p class="note">The engine remembered '+mem.events.length+' decision signals and used them to look for recurring positions.</p>';
+ if(mem.repeatedThemes.length)html+='<p><b>Repeated themes:</b> '+mem.repeatedThemes.map(x=>esc(x.theme)+' ('+x.count+')').join(', ')+'</p>';
+ if(cs.tested)html+='<p><b>Consistency tests:</b> '+cs.aligned+'/'+cs.tested+' aligned'+(cs.contradictions.length?' · '+cs.contradictions.length+' contradiction(s) to discuss':'')+'</p>';
+ if(cs.contradictions.length)html+='<div class="privacy"><b>Important:</b> A contradiction means your later answer differed from an earlier position. It does not prove bad character; it tells you to examine what changed and why.</div>';
+ html+='</div>'; return html+'</div>';
+}
+function renderComparison(c){
+ let html=`<div class="card"><h3>Where you align — and where you need conversation</h3><p class="note"><b>${c.alignment}% overall alignment signal.</b> This is not a compatibility verdict.</p><div class="grid"><div class="card center"><div class="small">${esc(c.gpa?.a?.name||'Player 1')} GPA</div><div style="font-size:38px;font-weight:900">${c.gpa?.a?.gpa?.toFixed(1)||'0.0'} / 4.0</div><span class="pill">Grade ${c.gpa?.a?.letter||'F'}</span></div><div class="card center"><div class="small">${esc(c.gpa?.b?.name||'Player 2')} GPA</div><div style="font-size:38px;font-weight:900">${c.gpa?.b?.gpa?.toFixed(1)||'0.0'} / 4.0</div><span class="pill">Grade ${c.gpa?.b?.letter||'F'}</span></div></div><div class="reportgrid">`;
+ for(const [d,x] of Object.entries(c.dimensions))html+=`<div class="dimcard"><b>${LABELS[d]}</b><div class="meter"><i style="width:${x.alignment}%"></i></div><div>${x.alignment}% alignment · average ${x.average}</div></div>`;
+ html+='</div>';
+ if(c.sharedSeriousPatterns.length)html+=`<p class="note"><b>Serious patterns detected:</b> ${c.sharedSeriousPatterns.map(id=>{const p=[...c.playerPatterns.a,...c.playerPatterns.b].find(x=>x.id===id);return p?esc(p.title):id}).join(', ')}.</p>`;
+ const prompts=conversationPrompts(c);if(prompts.length){html+='<div class="card"><h4>Conversation starters</h4>'+prompts.map(x=>`<p><b>${esc(x.title)}</b><br><span class="note">${esc(x.prompt)}</span></p>`).join('')+'</div>'}
+ return html+'</div>';
+}
+window.hostRoom=max=>{const n=$('hn').value.trim();if(!n)return alert('Enter your name.');socket.emit('createRoom',{name:n,max},r=>{if(!r.ok)return alert(r.error);room=r.room;show('lobby');$('code').textContent=room;$('startRoom').classList.remove('hidden')})};
+window.joinRoom=()=>{const n=$('jn').value.trim(),c=$('jc').value.trim().toUpperCase();if(!n||!c)return;socket.emit('joinRoom',{name:n,room:c},r=>{if(!r.ok)$('msg').textContent=r.error;else{room=r.room;show('lobby');$('code').textContent=room}})};
+socket.on('room',r=>{$('people').innerHTML=r.players.map((p,i)=>`<div class="row between"><span>${i+1}. ${esc(p.name)}</span><span class="pill">${p.answered?'answered':'ready'}</span></div>`).join('')});
+socket.on('start',()=>{mode='multi';index=0;roundNumber=1;multiRoundWaiting=false;show('game');renderMulti()});
+function renderMulti(){const bank=roundBase();const q=bank[index%bank.length];$('cat').textContent=q.category;$('num').textContent=`Round ${roundNumber} · Scenario ${index+1} / ${roundSize}`;$('bar').style.width=((index%bank.length+1)/Math.min(roundSize,bank.length)*100)+'%';$('privacy').textContent='🔒 Your answer is private until the round closes.';$('q').textContent=q.prompt; $('qi').innerHTML=`<b>Why this matters:</b> ${esc(q.intelligence?.biblicalPrinciple||'Use wisdom, love and responsibility.')}<br><span class="small">Biblical anchors: ${esc((q.intelligence?.scriptureRefs||[]).join(', '))} · Stakes: ${esc(q.intelligence?.stakes||'low')}</span>`; $('qi').classList.remove('hidden'); $('feedback').classList.add('hidden');$('reflection').classList.add('hidden');$('continue').classList.add('hidden');$('opts').innerHTML=shuffledOptions(q).map(({o,i})=>`<button class="opt" data-i="${i}">${esc(o.text)}</button>`).join('');document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>multiPick(Number(b.dataset.i)))}
+function multiPick(i){document.querySelectorAll('.opt').forEach(b=>b.disabled=true);const bank=roundBase(),q=bank[index%bank.length],o=q.options[i],points=Math.max(0,Object.values(o.effects||{}).reduce((a,b)=>a+b,0));socket.emit('answer',{room,answer:i,metadata:{points,dimensionEffects:o.effects||{},flag:o.flag||null,evidence:o.evidence||null}})}
+socket.on('roundComplete',r=>{multiRoundWaiting=true;show('roundReport');$('roundTitle').textContent=`Round ${roundNumber} Complete`;$('roundIntro').textContent='Everyone has answered. Scores are displayed now. The host can continue, or anyone can end their journey on their own device.';$('roundBody').innerHTML='<div class="card"><h3>Round score</h3>'+r.scores.map(p=>`<p><b>${esc(p.name)}</b> — ${p.score} wisdom points</p>`).join('')+'</div><p class="note">Compare reasons, not personalities. A score is feedback on decisions in this round—not a measure of human worth or marriage suitability.</p>';$('roundContinue').textContent=`Continue to Round ${roundNumber+1}`;$('roundContinue').onclick=()=>mode==='multi'?continueMultiRound():continueRound();$('roundEnd').onclick=()=>mode==='multi'?endMultiJourney():endJourney();$('roundContinue').disabled=false;});
+socket.on('next',r=>{roundNumber++;index=0;multiRoundWaiting=false;show('game');renderMulti()});
+socket.on('complete',r=>{show('report');$('reportTitle').textContent='8-Player Biblical Wisdom Challenge Complete';$('reportIntro').textContent='Challenge scores show decision performance. They do not measure a person’s worth, salvation or marriage suitability.';$('reportBody').innerHTML='<div class="card">'+r.scores.sort((a,b)=>b.score-a.score).map((p,i)=>`<p><b>${i+1}. ${esc(p.name)}</b> — ${p.score} wisdom points</p>`).join('')+'</div>'});
+window.continueMultiRound=()=>socket.emit('continueRound',{room});window.endMultiJourney=()=>socket.emit('endRoom',{room});
+
+socket.on('closed',()=>{alert('The host closed the room.');resetApp()});window.resetApp=()=>location.reload();
+</script></body></html>
