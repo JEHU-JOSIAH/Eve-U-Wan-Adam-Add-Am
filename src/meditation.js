@@ -1,19 +1,146 @@
-export const MEDITATIONS = [
-  {id:'med-01',title:'Dating is discernment, not desperation',author:'Ben Stuart',book:'Single. Dating. Engaged. Married.',quote:'“Dating is our modern process of evaluation.”',reflection:'Do not let loneliness, chemistry, family pressure, age anxiety, or fear of missing out make the decision for you. Slow down enough to observe character, direction, wisdom, and consistency.',scripture:'Proverbs 14:15',scriptureText:'The simple believes everything, but the prudent gives thought to his steps.',ponder:['What evidence am I currently ignoring because I want the relationship to work?','Am I evaluating a person, or trying to secure a relationship?']},
-  {id:'med-02',title:'Bless, don’t merely impress',author:'Ben Stuart',book:'Single. Dating. Engaged. Married.',quote:'“Your aim should be to bless, not simply to impress.”',reflection:'A healthy relationship should leave both people clearer, wiser, safer, and more able to pursue God—not merely more emotionally attached.',scripture:'Philippians 2:3-4',scriptureText:'In humility count others more significant than yourselves, looking not only to your own interests, but also to the interests of others.',ponder:['Does my presence make this person more whole or more confused?','Am I trying to be chosen, or trying to know the truth?']},
-  {id:'med-03',title:'Character before chemistry',author:'Ben Stuart',book:'Single. Dating. Engaged. Married.',quote:'“What we are looking for is character and chemistry.”',reflection:'Attraction matters, but attraction cannot carry dishonesty, uncontrolled anger, contempt, irresponsibility, coercion, or radically different values.',scripture:'Matthew 7:16',scriptureText:'You will recognize them by their fruits.',ponder:['What fruit has this person consistently produced?','Would I still respect this person if the attraction disappeared for a season?']},
-  {id:'med-04',title:'Ready to date when you do not need to',author:'Myles Munroe',book:'Waiting and Dating',quote:'“You are ready to date when you don’t need to.”',reflection:'Munroe frames readiness as wholeness rather than desperation: a relationship should be a choice, not a rescue mission for an unhealed identity or an unfulfilled life.',scripture:'Matthew 6:33',scriptureText:'Seek first the kingdom of God and his righteousness, and all these things will be added to you.',ponder:['What am I hoping another person will supply that I need to develop in myself?','If no relationship came this year, would I still know how to live purposefully?']},
-  {id:'med-05',title:'Learn how to be alone',author:'Myles Munroe',book:'Waiting and Dating',quote:'“Learn to be alone.”',reflection:'The book connects healthy singleness with identity, spiritual roots, self-awareness, and growth. Practice becoming a whole person before asking another person to share your life.',scripture:'Psalm 16:11',scriptureText:'You make known to me the path of life; in your presence there is fullness of joy.',ponder:['Can I enjoy my life without romantic validation?','What part of my character needs attention before covenant?']},
-  {id:'med-06',title:'Stay on the road to God’s Kingdom',author:'Myles Munroe',book:'Waiting and Dating',quote:'“Don’t ever become so preoccupied by who you want that you forget to be who you are.”',reflection:'Do not abandon your convictions, purpose, spiritual growth, or identity because you are attracted to someone. The person you choose should be considered in the context of the direction your life is already taking.',scripture:'Matthew 6:33',scriptureText:'Seek first the kingdom of God and his righteousness.',ponder:['Has this relationship strengthened or distracted my pursuit of God?','Am I changing who I am simply to keep someone?']},
-  {id:'med-07',title:'Walking in agreement',author:'Myles Munroe',book:'Waiting and Dating',quote:'“Walking together is contingent upon agreement.”',reflection:'Agreement does not mean identical personalities or opinions. It means taking seriously the foundational areas that determine whether two people can walk in the same direction: faith, values, purpose, family, stewardship, and life decisions.',scripture:'Amos 3:3',scriptureText:'Do two walk together unless they have agreed to meet?',ponder:['Where are we genuinely aligned?','Which disagreement could become a structural problem after marriage?']},
-  {id:'med-08',title:'Spirit, soul, then body',author:'Myles Munroe',book:'Waiting and Dating',quote:'“Healthy relationships should always begin at the spiritual and intellectual levels.”',reflection:'The book teaches a deliberate progression: discover spiritual alignment, then learn the person’s mind, emotions, interests, goals, and character before allowing physical attraction to dominate the relationship.',scripture:'1 Thessalonians 4:3-4',scriptureText:'This is the will of God, your sanctification: that you abstain from sexual immorality.',ponder:['What do I know about this person beyond attraction?','Has physical closeness become louder than our conversations about purpose and character?']},
-  {id:'med-09',title:'Build friendship before romance becomes a shortcut',author:'Myles Munroe',book:'Waiting and Dating',quote:'“Don’t marry your lover, marry your friend.”',reflection:'Munroe places friendship at the heart of long-term relationship building. The game can use this idea as a test: can you genuinely know, respect, listen to, encourage, and tell the truth to this person?',scripture:'Proverbs 17:17',scriptureText:'A friend loves at all times, and a brother is born for adversity.',ponder:['Would friendship remain if romance were removed?','Can we disagree, apologize, laugh, plan, and tell the truth without losing respect?']},
-  {id:'med-10',title:'True intimacy takes time',author:'Myles Munroe',book:'Waiting and Dating',quote:'“True intimacy takes time to develop.”',reflection:'Do not confuse access with intimacy. Trust grows through repeated evidence, honest conversations, shared experiences, repair after conflict, and consistent character.',scripture:'Proverbs 4:23',scriptureText:'Keep your heart with all vigilance, for from it flow the springs of life.',ponder:['What evidence has earned the level of trust I am giving?','Am I accelerating emotional intimacy faster than wisdom can evaluate the relationship?']},
-  {id:'med-11',title:'Ask questions that reveal the person',author:'Myles Munroe',book:'Waiting and Dating',quote:'“Ask questions and then listen to the answers.”',reflection:'The book recommends learning about family, education, interests, spiritual matters, dreams, and goals. In Eve U Wan Adam Add Am, good questions should uncover reality—not manufacture a desired image.',scripture:'Proverbs 18:13',scriptureText:'If one gives an answer before he hears, it is his folly and shame.',ponder:['What important question have I avoided because I fear the answer?','Do I listen to understand, or listen only for confirmation?']},
-  {id:'med-12',title:'Love should help potential become responsible action',author:'Myles Munroe',book:'Waiting and Dating',quote:'“True love is always willing to wait.”',reflection:'Healthy love can give someone room to grow without pretending that potential is present character. Waiting can be wise when it protects both people from forcing a decision before maturity, clarity, or readiness exists.',scripture:'1 Corinthians 13:7',scriptureText:'Love bears all things, believes all things, hopes all things, endures all things.',ponder:['Am I being patient with genuine growth, or making excuses for repeated patterns?','What would responsible progress actually look like?']},
-  {id:'med-13',title:'Discern the right life partner',author:'Myles Munroe',book:'Waiting and Dating',quote:'“What is my gift? What do I have that I could contribute to this person?”',reflection:'Discernment is not only “What can this person do for me?” It also asks what you bring, what you are called to build, and whether the relationship can support both people’s gifts, goals, and responsibilities.',scripture:'1 Peter 4:10',scriptureText:'As each has received a gift, use it to serve one another, as good stewards of God’s varied grace.',ponder:['What am I prepared to contribute to a future marriage?','Do I admire this person’s calling, or merely the benefits I expect from it?']},
-  {id:'med-14',title:'Engagement is preparation, not just celebration',author:'Myles Munroe',book:'Waiting and Dating',quote:'“Engagement is the time for couples to put into place and execute their action plan.”',reflection:'Before covenant, serious conversations should move from vague hopes to practical plans: finances, work, education, housing, family responsibilities, goals, and how unexpected changes will be handled.',scripture:'Luke 14:28',scriptureText:'Which of you, desiring to build a tower, does not first sit down and count the cost?',ponder:['What practical conversation would expose whether we are truly ready?','Are we planning a wedding more carefully than we are planning a marriage?']},
-  {id:'med-15',title:'Do not confuse forgiveness with trust',author:'Curated reflection',book:'Christian relationship discernment',quote:'Forgiveness can coexist with boundaries and accountability.',reflection:'Grace can coexist with consequences, boundaries, and a slower restoration of access. Reconciliation is not the same as pretending harm never happened.',scripture:'Colossians 3:13',scriptureText:'Bear with one another and, if one has a complaint against another, forgive each other.',ponder:['What would genuine repair look like here?','What evidence would make trust reasonable again?']},
-  {id:'med-16',title:'Faith and wisdom belong together',author:'Curated reflection',book:'Christian relationship discernment',quote:'Prayer should deepen wisdom, not replace responsibility.',reflection:'Pray. Ask questions. Seek qualified counsel. Gather evidence. Make informed decisions. Faith does not require you to switch off your mind or surrender another person’s conscience.',scripture:'James 1:5',scriptureText:'If any of you lacks wisdom, let him ask God, who gives generously to all without reproach.',ponder:['Have I prayed only for the answer I want?','What wise counsel or evidence have I not yet considered?']},
-  {id:'med-17',title:'Your partner is not your project',author:'Curated reflection',book:'Christian relationship discernment',quote:'Potential is not the same thing as present character.',reflection:'People can grow. But do not build a covenant around a version of someone that exists only in your imagination. Look for humility, teachability, ownership, and actual movement.',scripture:'James 1:22',scriptureText:'Be doers of the word, and not hearers only, deceiving yourselves.',ponder:['Am I loving who this person is, or who I believe I can make them become?','What change is already visible in behaviour—not merely promised?']}
+// Meditation & Scripture module
+// Original reflections written for this app — inspired by the general, publicly known
+// themes of the "seasons of love" framework popularized by teachers such as
+// Myles Munroe ("Waiting and Dating") and Ben Stuart ("Single, Dating, Engaged, Married").
+// These are NOT excerpts or reproductions of their books — no text from those copyrighted
+// works is copied here. Each entry pairs an original short reflection with a full King
+// James Version scripture passage (public domain) and a question to journal or discuss.
+// Readers who want the authors' own words are encouraged to read the original books.
+
+export const MEDITATION_SOURCES = [
+  { name: 'Waiting and Dating', author: 'Myles Munroe' },
+  { name: 'Single, Dating, Engaged, Married', author: 'Ben Stuart' }
 ];
+
+export const MEDITATION_CATEGORIES = [
+  { id: 'waiting', label: 'Waiting', icon: '⏳', tagline: 'The single season is not a waiting room — it is training ground.' },
+  { id: 'dating', label: 'Dating', icon: '🌱', tagline: 'Dating is for discovery, not performance.' },
+  { id: 'engaged', label: 'Engaged', icon: '💍', tagline: 'A season to build, not just to celebrate.' },
+  { id: 'married', label: 'Married', icon: '🕊️', tagline: 'Covenant love, tested and renewed daily.' }
+];
+
+export const MEDITATIONS = [
+  // ---------------- WAITING ----------------
+  {
+    id: 'wait-01', category: 'waiting', title: 'Purpose Before Partner',
+    reflection: "Before you ask 'who is right for me', ask 'what am I here for'. A life with no direction cannot recognize the right traveling companion — it only recognizes company. Use this season to discover what God has called you to build, so that when someone shows up, you can measure them against a purpose, not against loneliness.",
+    scriptureRef: 'Jeremiah 29:11 (KJV)',
+    scriptureText: 'For I know the thoughts that I think toward you, saith the LORD, thoughts of peace, and not of evil, to give you an expected end.',
+    prompt: 'What is one part of your purpose you could invest in this month, whether or not you are in a relationship?'
+  },
+  {
+    id: 'wait-02', category: 'waiting', title: 'Guard What Feeds Your Heart',
+    reflection: "Singleness is not an empty season; it is an unsupervised one. What you allow into your heart now — the shows, the conversations, the company — becomes the soil someone else will plant in later. Waiting well is less about being passive and more about being alert to what you are cultivating while no one is watching.",
+    scriptureRef: 'Proverbs 4:23 (KJV)',
+    scriptureText: 'Keep thy heart with all diligence; for out of it are the issues of life.',
+    prompt: 'What is one thing you are currently allowing into your heart that does not deserve to be there?'
+  },
+  {
+    id: 'wait-03', category: 'waiting', title: 'Strength Renewed, Not Rushed',
+    reflection: "Waiting is often framed as weakness — as if the strong ones are the ones who 'make something happen'. But real strength is patient enough to let character catch up to desire. Rushing a relationship to escape loneliness usually trades a short season of waiting for a long season of regret.",
+    scriptureRef: 'Isaiah 40:31 (KJV)',
+    scriptureText: 'But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.',
+    prompt: 'Where in your life have you mistaken rushing for progress?'
+  },
+  {
+    id: 'wait-04', category: 'waiting', title: 'Delight, Then Desire',
+    reflection: "This verse is often misquoted as a formula for getting what you want. Read closely, it is an order of operations: delight comes first. A heart that is genuinely satisfied in its relationship with God is far less likely to hand its discernment over to the first person who shows interest.",
+    scriptureRef: 'Psalm 37:4 (KJV)',
+    scriptureText: 'Delight thyself also in the LORD; and he shall give thee the desires of thine heart.',
+    prompt: 'Is your current desire for a relationship coming from delight or from deficit?'
+  },
+
+  // ---------------- DATING ----------------
+  {
+    id: 'date-01', category: 'dating', title: 'Test the Fruit, Not the Promises',
+    reflection: "Words are easy in the early stage of a relationship, because words cost nothing yet. Fruit takes time and pressure to grow. Watch how someone treats a waiter, handles being told no, and speaks about their exes and their family — those are fruit, not a first impression.",
+    scriptureRef: 'Matthew 7:16-17 (KJV)',
+    scriptureText: 'Ye shall know them by their fruits. Do men gather grapes of thorns, or figs of thistles? Even so every good tree bringeth forth good fruit; but a corrupt tree bringeth forth evil fruit.',
+    prompt: 'What fruit have you actually observed in this person over time, as opposed to what they have told you about themselves?'
+  },
+  {
+    id: 'date-02', category: 'dating', title: 'Love That Is Patient With Facts',
+    reflection: "Real love does not need to be rushed, hidden, or defended from scrutiny. If a relationship cannot survive honest questions, wise counsel, or a season of getting to know someone slowly, it may be infatuation wearing love's name.",
+    scriptureRef: '1 Corinthians 13:4-7 (KJV)',
+    scriptureText: 'Charity suffereth long, and is kind; charity envieth not; charity vaunteth not itself, is not puffed up, doth not behave itself unseemly, seeketh not her own, is not easily provoked, thinketh no evil; rejoiceth not in iniquity, but rejoiceth in the truth; beareth all things, believeth all things, hopeth all things, endureth all things.',
+    prompt: 'Which phrase in this passage is hardest to say honestly about your current relationship — and why?'
+  },
+  {
+    id: 'date-03', category: 'dating', title: 'Counsel Is Not Control',
+    reflection: "Many people hide a new relationship from people who love them because they suspect what those people might say. That instinct to hide is itself information. Wise counsel does not remove your freedom to choose; it simply widens what you can see before you choose.",
+    scriptureRef: 'Proverbs 15:22 (KJV)',
+    scriptureText: 'Without counsel purposes are disappointed: but in the multitude of counsellors they are established.',
+    prompt: 'Who in your life would tell you the truth about this relationship, even if it was not what you wanted to hear — and have you actually asked them?'
+  },
+  {
+    id: 'date-04', category: 'dating', title: 'Unequal Yoking Is Not Just About Religion',
+    reflection: "This verse is often applied narrowly to faith labels, but its deeper principle is about direction: two people pulling toward different destinations will eventually tear the yoke, and each other. Shared faith matters, but so does a shared direction for finances, family, and purpose.",
+    scriptureRef: '2 Corinthians 6:14 (KJV)',
+    scriptureText: 'Be ye not unequally yoked together with unbelievers: for what fellowship hath righteousness with unrighteousness? and what communion hath light with darkness?',
+    prompt: 'In what specific direction are you and this person actually walking — not what you hope, but what your daily choices show?'
+  },
+
+  // ---------------- ENGAGED ----------------
+  {
+    id: 'eng-01', category: 'engaged', title: 'Build the House Before You Move In',
+    reflection: "Engagement is not a victory lap; it is a construction phase. Budgets, conflict patterns, family expectations, and hard conversations about children and calling belong here — not after the wedding, when the cost of discovering a mismatch is much higher.",
+    scriptureRef: 'Proverbs 24:27 (KJV)',
+    scriptureText: 'Prepare thy work without, and make it fit for thyself in the field; and afterwards build thine house.',
+    prompt: 'What conversation have you and your fiancé(e) been avoiding because it feels unromantic?'
+  },
+  {
+    id: 'eng-02', category: 'engaged', title: 'Two Are Better Than One — If They Actually Help Each Other Up',
+    reflection: "This passage is frequently read at weddings, but its real content is practical, not sentimental: partnership exists to lift each other when one falls, and to provide warmth and defense in hard seasons. Ask whether this is already true of you two now, in the small failures, not just imagined for the big ones later.",
+    scriptureRef: 'Ecclesiastes 4:9-10 (KJV)',
+    scriptureText: 'Two are better than one; because they have a good reward for their labour. For if they fall, the one will lift up his fellow: but woe to him that is alone when he falleth; for he hath not another to help him up.',
+    prompt: 'Think of the last time you failed at something. Did your engagement actually function like this passage — or did you hide the fall?'
+  },
+  {
+    id: 'eng-03', category: 'engaged', title: 'Leaving Well So You Can Cleave Well',
+    reflection: "Marriage requires a genuine shift in primary loyalty — not abandoning parents, but no longer letting their voice override the marriage. Couples who never renegotiate boundaries with in-laws during engagement often import that unfinished conversation straight into the marriage.",
+    scriptureRef: 'Genesis 2:24 (KJV)',
+    scriptureText: 'Therefore shall a man leave his father and his mother, and shall cleave unto his wife: and they shall be one flesh.',
+    prompt: 'What has not yet been renegotiated with your families that needs to be settled before the wedding, not after?'
+  },
+  {
+    id: 'eng-04', category: 'engaged', title: 'Count the Cost Honestly',
+    reflection: "Wisdom does not mean pessimism about the relationship; it means an honest inventory before commitment. A wedding budget, a shared financial picture, a plan for children, and a plan for conflict are the 'materials' this passage is describing.",
+    scriptureRef: 'Luke 14:28 (KJV)',
+    scriptureText: 'For which of you, intending to build a tower, sitteth not down first, and counteth the cost, whether he have sufficient to finish it?',
+    prompt: 'Have you and your fiancé(e) actually looked at real numbers and real plans together, or only talked about the wedding day?'
+  },
+
+  // ---------------- MARRIED ----------------
+  {
+    id: 'mar-01', category: 'married', title: 'Love Is a Daily Decision, Not Just a Feeling',
+    reflection: "The instruction to husbands here is active and ongoing, modeled on a love that gave itself up — not a love that waits to feel inspired. Feelings will fluctuate with sleep, stress, and season; covenant love is the decision that keeps showing up on the flat days too.",
+    scriptureRef: 'Ephesians 5:25 (KJV)',
+    scriptureText: 'Husbands, love your wives, even as Christ also loved the church, and gave himself for it.',
+    prompt: 'What would it look like to love your spouse today specifically, rather than in general?'
+  },
+  {
+    id: 'mar-02', category: 'married', title: 'Anger Has a Curfew',
+    reflection: "This is not a command to never be angry — anger itself is not sin. It is a command to not let unresolved conflict become a permanent resident in the relationship. Couples who make a habit of resolving before sleep build a very different marriage than those who let silence accumulate.",
+    scriptureRef: 'Ephesians 4:26 (KJV)',
+    scriptureText: 'Be ye angry, and sin not: let not the sun go down upon your wrath.',
+    prompt: 'Is there an unresolved conflict in your marriage right now that has already outlived its curfew?'
+  },
+  {
+    id: 'mar-03', category: 'married', title: 'A Cord Not Easily Broken',
+    reflection: "A marriage that only has two strands — you and your spouse — is more fragile than one with a third, shared commitment to God running through it. The image is practical: two threads snap far more easily than three woven together.",
+    scriptureRef: 'Ecclesiastes 4:12 (KJV)',
+    scriptureText: 'And if one prevail against him, two shall withstand him; and a threefold cord is not quickly broken.',
+    prompt: 'What would it look like to intentionally weave a third strand into your marriage this season?'
+  },
+  {
+    id: 'mar-04', category: 'married', title: 'Covenant Is Kept Even When It Costs',
+    reflection: "This verse pairs honor with purity in the same breath — marriage is meant to be protected, not merely tolerated. Fidelity is not only about avoiding a single dramatic betrayal; it is about the small, daily choices to keep the marriage bed — and the marriage itself — honored.",
+    scriptureRef: 'Hebrews 13:4 (KJV)',
+    scriptureText: 'Marriage is honourable in all, and the bed undefiled: but whoremongers and adulterers God will judge.',
+    prompt: 'What small daily habit protects your marriage — and is there one you have let slide?'
+  }
+];
+
+export function meditationsByCategory(categoryId) {
+  return MEDITATIONS.filter(m => m.category === categoryId);
+}
