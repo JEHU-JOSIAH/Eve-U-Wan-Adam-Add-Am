@@ -70,6 +70,14 @@ nav.topnav{position:sticky;top:0;z-index:40;backdrop-filter:blur(10px);backgroun
 .opt{text-align:left;background:#101d33;color:#fff;margin:8px 0;cursor:pointer;line-height:1.45;transition:.15s}
 .opt:hover{border-color:var(--gold);background:#152238}
 .hidden{display:none}
+#game{position:relative}
+.iconbtn{width:38px;height:38px;flex:none;border-radius:10px;border:1px solid var(--line);background:#101d33;color:var(--gold-soft);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.15s}
+.iconbtn:hover{border-color:var(--gold-deep)}
+.iconbtn svg{width:17px;height:17px}
+.pauseOverlay{position:absolute;inset:0;background:linear-gradient(180deg,var(--card) 0%,var(--card-2) 130%);backdrop-filter:blur(8px);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;z-index:30;text-align:center}
+.pauseOverlay .pausecard{padding:22px;max-width:360px}
+.pauseOverlay .picon{width:64px;height:64px;border-radius:50%;background:linear-gradient(160deg,var(--gold-soft),var(--gold-deep));display:flex;align-items:center;justify-content:center;margin:0 auto 14px;box-shadow:0 14px 30px -8px #c99a4a55}
+.pauseOverlay .picon svg{width:26px;height:26px;color:#241a05}
 .round-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
 .round-actions .btn{flex:1;min-width:180px}
 .roundscore{font-size:40px;font-weight:800;line-height:1.05;font-family:var(--serif)}
@@ -166,7 +174,9 @@ footer b{color:var(--gold-soft)}
 
 <section id="setup" class="card hidden"><h2 id="setupTitle">Assessment Setup</h2><p class="note" id="setupNote"></p><div class="grid"><input id="pname" class="input" placeholder="Your name"><select id="gender" class="input"><option value="unspecified">Gender not specified</option><option value="man">Man</option><option value="woman">Woman</option></select></div><button class="btn primary" onclick="beginAssessment()" style="margin-top:12px">Begin</button><button class="btn" onclick="show('home')" style="margin-top:10px">Back</button></section>
 
-<section id="game" class="card hidden"><div class="row between"><span id="cat" class="pill"></span><span id="num" class="pill"></span></div><div class="meter"><i id="bar"></i></div><div class="privacy" id="privacy"></div><div id="q" class="q"></div><div id="qi" class="note hidden"></div><div id="opts"></div><div id="feedback" class="quote hidden"></div><div id="reflection" class="quote hidden"></div><button id="continue" class="btn primary hidden" onclick="continueAfterReflection()">Continue</button></section>
+<section id="game" class="card hidden"><div class="row between"><span id="cat" class="pill"></span><div class="row" style="gap:8px"><span id="num" class="pill"></span><button id="pauseBtn" class="iconbtn" onclick="togglePause()" title="Pause"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></button></div></div><div class="meter"><i id="bar"></i></div><div class="privacy" id="privacy"></div><div id="q" class="q"></div><div id="qi" class="note hidden"></div><div id="opts"></div><div id="feedback" class="quote hidden"></div><div id="reflection" class="quote hidden"></div><button id="continue" class="btn primary hidden" onclick="continueAfterReflection()">Continue</button>
+ <div id="pauseOverlay" class="pauseOverlay hidden"><div class="pausecard"><div class="picon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><h3>Session Paused</h3><p class="note">Take your time. Nothing on this screen is visible while paused, and your progress is safe — tap Resume when you are ready to continue.</p><button class="btn primary" onclick="togglePause()">Resume</button></div></div>
+</section>
 
 <section id="roundReport" class="card hidden"><h2 id="roundTitle">Round Complete</h2><p class="note" id="roundIntro"></p><div id="roundBody"></div><div class="round-actions"><button id="roundContinue" class="btn primary" onclick="continueRound()">Continue to Next Round</button><button id="roundEnd" class="btn" onclick="endJourney()">End Journey &amp; View Report</button></div></section>
 
@@ -213,8 +223,14 @@ window.beginAssessment=()=>{
  plan.push({...first.question,directorSource:first.source,directorReason:first.reason});
  baseCount=plan.length; show('game');renderQuestion();
 };
+let paused=false;
+const PAUSE_ICON='<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
+const PLAY_ICON='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+function resetPause(){paused=false;$('pauseOverlay').classList.add('hidden');$('pauseBtn').innerHTML=PAUSE_ICON;$('pauseBtn').title='Pause'}
+window.togglePause=()=>{paused=!paused;$('pauseOverlay').classList.toggle('hidden',!paused);$('pauseBtn').innerHTML=paused?PLAY_ICON:PAUSE_ICON;$('pauseBtn').title=paused?'Resume':'Pause'};
 function shuffledOptions(q){return q.options.map((o,i)=>({o,i})).sort(()=>Math.random()-.5)}
 function renderQuestion(){
+ resetPause();
  const q=plan[index]; const isTest=!!q.consistencyTest; const isCon=!!q.consequenceScenario; $('cat').textContent=q.category;$('num').textContent=`Round ${roundNumber} · Scenario ${index+1} / ${roundSize}`;$('bar').style.width=(Math.min(100,((index+1)/roundSize)*100))+'%';
  $('privacy').textContent=isCon?'🎬 Consequence Scenario — an earlier choice has shaped this situation.':(isTest?'🧠 Consistency Test — the engine is checking whether your later decision matches an earlier position.':(mode==='duel'?'🔒 Private answer: '+player.name+' — answer honestly. The other player will answer separately.':'🧭 Practice mode — answer as you would in real life.'));
  $('feedback').classList.remove('hidden');$('feedback').innerHTML='<b>🧭 Scenario Director</b><br>'+esc(q.directorReason||'The Director is balancing your assessment.');
@@ -223,7 +239,7 @@ function renderQuestion(){
  document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>pick(Number(b.dataset.i)));
 }
 function pick(i){
- if(waiting)return;waiting=true;const q=plan[index];player=q.consequenceScenario?applyConsequenceAnswer(player,q,i):applyAnswer(player,q,i);const opt=q.options[i];
+ if(waiting||paused)return;waiting=true;const q=plan[index];player=q.consequenceScenario?applyConsequenceAnswer(player,q,i):applyAnswer(player,q,i);const opt=q.options[i];
  const fb=decisionFeedback(q,opt);
  $('opts').innerHTML='';$('feedback').classList.remove('hidden');
  $('feedback').innerHTML='<b>Decision impact</b><br>'+fb.map(x=>`${esc(x.label)}: <b>${x.delta>0?'strengthening':'needs attention'}</b>`).join(' · ');
@@ -330,8 +346,8 @@ window.hostRoom=max=>{const n=$('hn').value.trim();if(!n)return alert('Enter you
 window.joinRoom=()=>{const n=$('jn').value.trim(),c=$('jc').value.trim().toUpperCase();if(!n||!c)return;socket.emit('joinRoom',{name:n,room:c},r=>{if(!r.ok)$('msg').textContent=r.error;else{room=r.room;show('lobby');$('code').textContent=room}})};
 socket.on('room',r=>{$('people').innerHTML=r.players.map((p,i)=>`<div class="row between"><span>${i+1}. ${esc(p.name)}</span><span class="pill">${p.answered?'answered':'ready'}</span></div>`).join('')});
 socket.on('start',()=>{mode='multi';index=0;roundNumber=1;multiRoundWaiting=false;show('game');renderMulti()});
-function renderMulti(){const bank=roundBase();const q=bank[index%bank.length];$('cat').textContent=q.category;$('num').textContent=`Round ${roundNumber} · Scenario ${index+1} / ${roundSize}`;$('bar').style.width=((index%bank.length+1)/Math.min(roundSize,bank.length)*100)+'%';$('privacy').textContent='🔒 Your answer is private until the round closes.';$('q').textContent=q.prompt; $('qi').innerHTML=`<b>Why this matters:</b> ${esc(q.intelligence?.biblicalPrinciple||'Use wisdom, love and responsibility.')}<br><span class="small">Biblical anchors: ${esc((q.intelligence?.scriptureRefs||[]).join(', '))} · Stakes: ${esc(q.intelligence?.stakes||'low')}</span>`; $('qi').classList.remove('hidden'); $('feedback').classList.add('hidden');$('reflection').classList.add('hidden');$('continue').classList.add('hidden');$('opts').innerHTML=shuffledOptions(q).map(({o,i})=>`<button class="opt" data-i="${i}">${esc(o.text)}</button>`).join('');document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>multiPick(Number(b.dataset.i)))}
-function multiPick(i){document.querySelectorAll('.opt').forEach(b=>b.disabled=true);const bank=roundBase(),q=bank[index%bank.length],o=q.options[i],points=Math.max(0,Object.values(o.effects||{}).reduce((a,b)=>a+b,0));socket.emit('answer',{room,answer:i,metadata:{points,dimensionEffects:o.effects||{},flag:o.flag||null,evidence:o.evidence||null}})}
+function renderMulti(){resetPause();const bank=roundBase();const q=bank[index%bank.length];$('cat').textContent=q.category;$('num').textContent=`Round ${roundNumber} · Scenario ${index+1} / ${roundSize}`;$('bar').style.width=((index%bank.length+1)/Math.min(roundSize,bank.length)*100)+'%';$('privacy').textContent='🔒 Your answer is private until the round closes.';$('q').textContent=q.prompt; $('qi').innerHTML=`<b>Why this matters:</b> ${esc(q.intelligence?.biblicalPrinciple||'Use wisdom, love and responsibility.')}<br><span class="small">Biblical anchors: ${esc((q.intelligence?.scriptureRefs||[]).join(', '))} · Stakes: ${esc(q.intelligence?.stakes||'low')}</span>`; $('qi').classList.remove('hidden'); $('feedback').classList.add('hidden');$('reflection').classList.add('hidden');$('continue').classList.add('hidden');$('opts').innerHTML=shuffledOptions(q).map(({o,i})=>`<button class="opt" data-i="${i}">${esc(o.text)}</button>`).join('');document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>multiPick(Number(b.dataset.i)))}
+function multiPick(i){if(paused)return;document.querySelectorAll('.opt').forEach(b=>b.disabled=true);const bank=roundBase(),q=bank[index%bank.length],o=q.options[i],points=Math.max(0,Object.values(o.effects||{}).reduce((a,b)=>a+b,0));socket.emit('answer',{room,answer:i,metadata:{points,dimensionEffects:o.effects||{},flag:o.flag||null,evidence:o.evidence||null}})}
 socket.on('roundComplete',r=>{multiRoundWaiting=true;show('roundReport');$('roundTitle').textContent=`Round ${roundNumber} Complete`;$('roundIntro').textContent='Everyone has answered. Scores are displayed now. The host can continue, or anyone can end their journey on their own device.';$('roundBody').innerHTML='<div class="card"><h3>Round score</h3>'+r.scores.map(p=>`<p><b>${esc(p.name)}</b> — ${p.score} wisdom points</p>`).join('')+'</div><p class="note">Compare reasons, not personalities. A score is feedback on decisions in this round—not a measure of human worth or marriage suitability.</p>';$('roundContinue').textContent=`Continue to Round ${roundNumber+1}`;$('roundContinue').onclick=()=>mode==='multi'?continueMultiRound():continueRound();$('roundEnd').onclick=()=>mode==='multi'?endMultiJourney():endJourney();$('roundContinue').disabled=false;});
 socket.on('next',r=>{roundNumber++;index=0;multiRoundWaiting=false;show('game');renderMulti()});
 socket.on('complete',r=>{show('report');$('reportTitle').textContent='8-Player Biblical Wisdom Challenge Complete';$('reportIntro').textContent='Challenge scores show decision performance. They do not measure a person’s worth, salvation or marriage suitability.';$('reportBody').innerHTML='<div class="card">'+r.scores.sort((a,b)=>b.score-a.score).map((p,i)=>`<p><b>${i+1}. ${esc(p.name)}</b> — ${p.score} wisdom points</p>`).join('')+'</div>'});
@@ -350,6 +366,6 @@ function renderMedList(){
  $('medList').innerHTML=(cat?`<p class="note" style="margin:2px 0 8px"><i>${esc(cat.tagline)}</i></p>`:'')+items.map(m=>`<div class="medcard" data-id="${m.id}"><h3>${esc(m.title)}</h3><div class="medref">${esc(m.scriptureRef)}</div><div class="medbody"><div class="scripture">“${esc(m.scriptureText)}”</div><p class="note">${esc(m.reflection)}</p><div class="prompt"><b>Ponder:</b> ${esc(m.prompt)}</div></div></div>`).join('');
  document.querySelectorAll('.medcard').forEach(c=>c.onclick=()=>c.classList.toggle('open'));
 }
-window.renderMeditation=()=>{renderMedTabs();renderMedList();$('medSources').innerHTML='Reflections on this page are original writing for this app, thematically inspired by teaching on the seasons of relationship found in <b>'+MEDITATION_SOURCES.map(s=>esc(s.name)+' by '+esc(s.author)).join('</b> and <b>')+'</b>. No text from those books is reproduced here — readers are encouraged to read the original works. Scripture is quoted from the public-domain King James Version.';};
+window.renderMeditation=()=>{renderMedTabs();renderMedList();const names=MEDITATION_SOURCES.map(s=>'<b>'+esc(s.name)+'</b> by '+esc(s.author));const list=names.length>1?names.slice(0,-1).join(', ')+' and '+names[names.length-1]:names[0];$('medSources').innerHTML='Reflections on this page are original writing for this app, thematically inspired by teaching on the seasons of relationship found in '+list+'. No text from those books is reproduced here — readers are encouraged to read the original works. Scripture is quoted from the public-domain King James Version.';};
 </script>
 </body></html>
