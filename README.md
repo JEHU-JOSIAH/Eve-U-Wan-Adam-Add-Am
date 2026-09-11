@@ -225,3 +225,23 @@ Thank you for the kind words on the grading/reporting — glad it's landing well
 The original local, same-device 2-player code is still in the file (now simply unreachable from the home screen) in case a same-device fallback is ever wanted again.
 
 **Not yet covered:** the separate "Host 2-8 Players"/"Join Room" group challenge mode is untouched — it still uses its own simpler points-tally scoring, unrelated to this change.
+
+## Meditation — major expansion (this update)
+
+Studied a compiled document of recorded relationship teaching from six ministers/couples: Rev. Dr. Sam Oye, Apostle Joshua Selman, Pastor Kingsley & Mildred Okonkwo, Bishop Funke Felix-Adejumo, and Dr. Paul & Pastor Becky Enenche. As with every prior source, no text is reproduced anywhere — only the subject areas (money mindsets, family/generational patterns, levels of relationship, what a man provides beyond money, positioning for marriage, courtship tests) informed which new topics to write original reflections about.
+
+**Meditation grew from 42 entries in 8 categories to 67 entries in 10 categories:**
+
+- **Two new categories:**
+  - **Money & Marriage** (5 entries) — God as the true source rather than a spouse, agreeing on financial direction before conflict forces it, transparency, generosity over a rigid 50/50 split, saving for tomorrow without starving today.
+  - **Family Roots** (5 entries) — generational patterns, why tolerated dysfunction repeats, that a cycle can genuinely be broken, discretion in how much of your past to disclose and when, forgiving a family history without excusing it.
+- **Six existing categories expanded:**
+  - Waiting +2 (the "5 A's" of positioning; friendship as the real foundation)
+  - Dating +2 (four tests before committing — conviction, peace, love, time; "assume nothing" about a partner's true character)
+  - Married +2 (four small phrases that protect a marriage; keeping outside family input from becoming outside control)
+  - Guidance +2 (forgiveness vs. tolerance as two different decisions; releasing what still occupies you)
+  - Vision +1 (vision as a form of security, not just direction)
+  - For Men +3 (providing more than money — the fuller picture of security a household needs; accountability protecting leadership; the "ladder trap" of treating people as useful rather than serving them)
+  - For Women +3 (dignity without shrinking; building your own financial base; not making a husband into a substitute for God)
+
+`MEDITATION_SOURCES` now credits 13 sources total. Every new scripture reference — including several less commonly quoted ones (Haggai 2:8, Genesis 18:19, Mark 10:8-9, 1 Thessalonians 5:21, and others) — was independently verified against multiple KJV sources for exact wording before use. Full module reloaded and validated: 67 unique IDs, all mapped to valid categories, zero duplicate scripture references across the entire set.
