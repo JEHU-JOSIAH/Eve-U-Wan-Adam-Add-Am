@@ -93,7 +93,7 @@ export const ROUND_5_SCENARIOS=[
 },
 {
  id:'r5-08-attraction-after-baby',category:'Emotional Maturity',difficulty:5,priority:5,audience:'both',
- prompt:'After the birth of your first child, your spouse’s body changes, sleep becomes difficult and intimacy becomes less frequent. You still love your spouse, but your attraction is not exactly what it was before pregnancy. You also notice yourself comparing your spouse with people online. What do you do?',
+ prompt:'After the birth of your first child, your spouse’s body and energy have changed, sleep becomes difficult and intimacy becomes less frequent. You still love your spouse, but your attraction is not exactly what it was before you became parents. You also notice yourself comparing your spouse with people online. What do you do?',
  options:[
   {text:'I would be honest without being cruel, stop feeding comparison, invest in rest and connection, appreciate my spouse as a whole person and allow attraction to adapt through a demanding season.',effects:{emotionalMaturity:10,boundariesSafety:9,partnership:10},memory:{theme:'attraction-through-seasons',position:'covenant-with-honest-kindness',commitments:['reject-comparison','protect-spouse-dignity','invest-in-connection'],testTags:['attraction','pregnancy','comparison'],testAgainst:true}},
   {text:'I would say nothing and secretly consume more attractive images so I can meet my needs elsewhere.',effects:{boundariesSafety:-10,characterIntegrity:-8,partnership:-8},flag:'red'},

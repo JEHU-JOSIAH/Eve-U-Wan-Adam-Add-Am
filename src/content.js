@@ -7,6 +7,9 @@ import { ROUND_3_SCENARIOS } from './round-3-actual.js';
 import { ROUND_4_SCENARIOS } from './round-4-actual.js';
 import { ROUND_5_SCENARIOS } from './round-5-actual.js';
 import { ROUND_6_SCENARIOS } from './round-6-actual.js';
+import { ROUND_7_SCENARIOS } from './round-7-actual.js';
+import { ROUND_8_SCENARIOS } from './round-8-actual.js';
+import { ROUND_9_SCENARIOS } from './round-9-actual.js';
 const LEGACY_QUESTIONS = [
  {id:'money-01',category:'Financial Literacy',difficulty:2,prompt:'Your partner wants to borrow a significant amount of money to start a personal project. What is the healthiest response?',options:[
   {text:'Give the money immediately because love should prove itself.',effects:{financialLiteracy:4,communication:2,characterIntegrity:2}},
@@ -86,8 +89,8 @@ export const BIBLE_REFLECTIONS = [
  'Ecclesiastes 4:9 — Two are better than one.'
 ];
 
-export const ROUND_BANKS = {1: ROUND_1_SCENARIOS, 2: ROUND_2_SCENARIOS, 3: ROUND_3_SCENARIOS, 4: ROUND_4_SCENARIOS, 5: ROUND_5_SCENARIOS, 6: ROUND_6_SCENARIOS};
-export const QUESTIONS = [...ROUND_1_SCENARIOS, ...ROUND_2_SCENARIOS, ...ROUND_3_SCENARIOS, ...ROUND_4_SCENARIOS, ...ROUND_5_SCENARIOS, ...ROUND_6_SCENARIOS, ...V7_QUESTION_BANK, ...TRANSFORMATION_BANK, ...LEGACY_QUESTIONS].map(enrichQuestion);
+export const ROUND_BANKS = {1: ROUND_1_SCENARIOS, 2: ROUND_2_SCENARIOS, 3: ROUND_3_SCENARIOS, 4: ROUND_4_SCENARIOS, 5: ROUND_5_SCENARIOS, 6: ROUND_6_SCENARIOS, 7: ROUND_7_SCENARIOS, 8: ROUND_8_SCENARIOS, 9: ROUND_9_SCENARIOS};
+export const QUESTIONS = [...ROUND_1_SCENARIOS, ...ROUND_2_SCENARIOS, ...ROUND_3_SCENARIOS, ...ROUND_4_SCENARIOS, ...ROUND_5_SCENARIOS, ...ROUND_6_SCENARIOS, ...ROUND_7_SCENARIOS, ...ROUND_8_SCENARIOS, ...ROUND_9_SCENARIOS, ...V7_QUESTION_BANK, ...TRANSFORMATION_BANK, ...LEGACY_QUESTIONS].map(enrichQuestion);
 
 export const WISDOM_CHALLENGE = QUESTIONS.map((q,i)=>({
   ...q,

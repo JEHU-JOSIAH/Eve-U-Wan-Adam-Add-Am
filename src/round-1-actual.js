@@ -123,7 +123,7 @@ export const ROUND_1_SCENARIOS = [
 },
 {
  id:'r1-11-attraction-change',category:'Emotional Maturity',difficulty:2,priority:4,audience:'both',
- prompt:'You are strongly attracted to your partner. Over time, normal life changes: stress, pregnancy or parenthood, weight changes, tiredness and less time for dressing up. You notice that your excitement is not exactly the same as it was at the beginning. What do you do with that reality?',
+ prompt:'You are strongly attracted to your partner. Over time, normal life changes: stress, having a baby together, weight changes, tiredness and less time for dressing up. You notice that your excitement is not exactly the same as it was at the beginning. What do you do with that reality?',
  options:[
   {text:'I would acknowledge that attraction can change without turning my partner’s body into a measure of worth. I would invest in affection, health, friendship, intimacy and honest communication.',effects:{emotionalMaturity:9,partnership:7,characterIntegrity:6,communication:5},memory:{theme:'attraction-change',position:'whole-person-love',commitments:['protect-dignity','invest-in-friendship','adapt-to-seasons'],testTags:['attraction-change'],testAgainst:true}},
   {text:'I would keep comparing the relationship with how exciting dating felt and hope the old feeling returns on its own.',effects:{emotionalMaturity:-3,partnership:-2},flag:'yellow'},

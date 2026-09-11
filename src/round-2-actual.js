@@ -66,6 +66,15 @@ export const ROUND_2_SCENARIOS=[
   {text:'I would take control of all pregnancy decisions because I believe leadership means protecting my family.',effects:{partnership:-9,boundariesSafety:-9,communication:-7},flag:'red'},
   {text:'I would avoid involvement because pregnancy is mainly the pregnant spouse’s issue.',effects:{partnership:-6,healthDecisions:-4,emotionalMaturity:-5},flag:'yellow'}
  ],
+ genderVariant:{woman:{
+  prompt:'You are pregnant, and it has changed the rhythm of your home. Medical appointments increase, energy drops, work becomes harder to balance, and both families have strong opinions about what you should do. You tell your partner, “I need your involvement, not decisions made over my head.” What do you do when people — including your partner — start deciding things for you anyway?',
+  options:[
+   {text:'I would say clearly and calmly what I need — real involvement without being overridden — and address repeated pushback directly instead of quietly absorbing it.',effects:{healthDecisions:9,partnership:8,boundariesSafety:9,communication:7},memory:{theme:'pregnancy',position:'assert-agency-with-love',commitments:['assert-boundaries','invite-partnership'],testTags:['pregnancy'],testAgainst:true}},
+   {text:'I would go along with whatever everyone suggests to avoid conflict during an already stressful time.',effects:{healthDecisions:-4,boundariesSafety:-6,partnership:-2},flag:'yellow'},
+   {text:'I would shut out everyone\u2019s input entirely, including my partner\u2019s, to protect my independence.',effects:{partnership:-7,communication:-6},flag:'orange'},
+   {text:'I would let relatives make the real decisions since arguing about this while pregnant feels like too much to handle.',effects:{healthDecisions:-6,boundariesSafety:-8,partnership:-5},flag:'red'}
+  ]
+ }},
  intelligence:I('Health & Major Decisions',['Leadership & Partnership','Boundaries & Safety','Communication'],'critical',['James 1:19','Philippians 2:4','1 Corinthians 13:4-5'],'Care should increase responsibility without removing the other person’s agency.',['pregnancy','informed-consent','family-pressure'],'pregnancy','Can protection become control? Can independence become abandonment?','How will you share responsibility while preserving the pregnant person’s informed agency?'),
  editorial:E('Test the difference between protective partnership and controlling another person’s body or care.','fear, responsibility and agency','“Because I love you, I should decide for you.”',['listening','qualified care','consent','practical support'],'Would I call this leadership if the roles were reversed?','Pregnancy can expose attitudes about gender, authority, money, family and medical decisions all at once.','Do not reward passivity or control; reward informed partnership.','protect without taking away agency')
 },

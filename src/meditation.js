@@ -1,22 +1,39 @@
 // Meditation & Scripture module
 // Original reflections written for this app — inspired by the general, publicly known
 // themes of the "seasons of love" framework popularized by teachers such as
-// Myles Munroe ("Waiting and Dating") and Ben Stuart ("Single, Dating, Engaged, Married").
-// These are NOT excerpts or reproductions of their books — no text from those copyrighted
-// works is copied here. Each entry pairs an original short reflection with a full King
-// James Version scripture passage (public domain) and a question to journal or discuss.
-// Readers who want the authors' own words are encouraged to read the original books.
+// Myles Munroe ("Waiting and Dating", "The Purpose and Power of Love and Marriage"),
+// Ben Stuart ("Single, Dating, Engaged, Married"), Faith Oyedepo ("Single With A
+// Difference", "Dating: A Biblical Guide"), David O. Oyedepo ("In Pursuit of Vision")
+// and T.D. Jakes ("T.D. Jakes Speaks to Men", "Daddy Loves His Girls").
+// These are NOT excerpts or reproductions of those books — no text from those copyrighted
+// works is copied here; only the general subject areas they teach on (e.g. "singleness as
+// a purposeful season", "peace as a test of guidance", "a marriage needs a shared vision",
+// "a man's identity apart from performance", "a woman's identity apart from a father's
+// absence") inspired which topics to write about, in entirely original wording. Each entry
+// pairs an original short reflection with a full King James Version scripture passage
+// (public domain) and a question to journal or discuss. Readers who want the authors' own
+// words are encouraged to read the original books.
 
 export const MEDITATION_SOURCES = [
   { name: 'Waiting and Dating', author: 'Myles Munroe' },
-  { name: 'Single, Dating, Engaged, Married', author: 'Ben Stuart' }
+  { name: 'The Purpose and Power of Love and Marriage', author: 'Myles Munroe' },
+  { name: 'Single, Dating, Engaged, Married', author: 'Ben Stuart' },
+  { name: 'Single With A Difference', author: 'Faith Oyedepo' },
+  { name: 'Dating: A Biblical Guide', author: 'Faith A. Oyedepo' },
+  { name: 'In Pursuit of Vision', author: 'David O. Oyedepo' },
+  { name: 'T.D. Jakes Speaks to Men', author: 'T.D. Jakes' },
+  { name: 'Daddy Loves His Girls', author: 'T.D. Jakes' }
 ];
 
 export const MEDITATION_CATEGORIES = [
   { id: 'waiting', label: 'Waiting', icon: '⏳', tagline: 'The single season is not a waiting room — it is training ground.' },
   { id: 'dating', label: 'Dating', icon: '🌱', tagline: 'Dating is for discovery, not performance.' },
   { id: 'engaged', label: 'Engaged', icon: '💍', tagline: 'A season to build, not just to celebrate.' },
-  { id: 'married', label: 'Married', icon: '🕊️', tagline: 'Covenant love, tested and renewed daily.' }
+  { id: 'married', label: 'Married', icon: '🕊️', tagline: 'Covenant love, tested and renewed daily.' },
+  { id: 'guidance', label: 'Guidance', icon: '🧭', tagline: 'Purpose, discernment and hearing God clearly in every season.' },
+  { id: 'vision', label: 'Vision', icon: '🎯', tagline: 'Where there is no vision for a relationship, it drifts toward destruction.' },
+  { id: 'for-men', label: 'For Men', icon: '🛡️', tagline: 'Identity, rest and leadership that comes from character, not performance.' },
+  { id: 'for-women', label: 'For Women', icon: '💎', tagline: 'Worth, discernment and destiny that were never on loan from a man.' }
 ];
 
 export const MEDITATIONS = [
@@ -49,6 +66,27 @@ export const MEDITATIONS = [
     scriptureText: 'Delight thyself also in the LORD; and he shall give thee the desires of thine heart.',
     prompt: 'Is your current desire for a relationship coming from delight or from deficit?'
   },
+  {
+    id: 'wait-05', category: 'waiting', title: 'The Power of Your Now',
+    reflection: "It is tempting to treat singleness as a waiting room you sit in until real life starts. But the years you are living right now are not a rehearsal — they are the only version of this season you will ever get. What you build, learn, forgive, and finish while single becomes the foundation everything else stands on. Postponing your life until marriage is not patience; it is procrastination wearing a spiritual costume.",
+    scriptureRef: '2 Corinthians 6:2 (KJV)',
+    scriptureText: 'Behold, now is the accepted time; behold, now is the day of salvation.',
+    prompt: 'What have you been postponing "until things settle down" that you could actually start this week?'
+  },
+  {
+    id: 'wait-06', category: 'waiting', title: 'Useful While Unmarried',
+    reflection: "David, Joseph, Nehemiah and Esther all did something history remembers while they were still single. Their impact was never conditioned on a wedding ring — it flowed from a gift they had already started using. If you are waiting to matter until you are married, you may be sitting on a contribution the world needs from you right now, in the shape you are currently in.",
+    scriptureRef: '1 Timothy 4:12 (KJV)',
+    scriptureText: 'Let no man despise thy youth; but be thou an example of the believers, in word, in conversation, in charity, in spirit, in faith, in purity.',
+    prompt: 'What gift or skill do you already have that could bless someone else this month, with no relationship required?'
+  },
+  {
+    id: 'wait-07', category: 'waiting', title: 'Practicing the Covenant You Will Need Later',
+    reflection: "Covenant faithfulness is not a switch that turns on at the altar; it is a muscle trained long before. How you keep your word to a friend, show up when you said you would, and stay honest when no one is checking — these small, unglamorous consistencies are the actual training ground for the covenant faithfulness marriage will one day require of you.",
+    scriptureRef: 'Psalm 89:34 (KJV)',
+    scriptureText: 'My covenant will I not break, nor alter the thing that is gone out of my lips.',
+    prompt: 'Where have you recently broken a small promise, and what would it look like to go back and repair it?'
+  },
 
   // ---------------- DATING ----------------
   {
@@ -78,6 +116,34 @@ export const MEDITATIONS = [
     scriptureRef: '2 Corinthians 6:14 (KJV)',
     scriptureText: 'Be ye not unequally yoked together with unbelievers: for what fellowship hath righteousness with unrighteousness? and what communion hath light with darkness?',
     prompt: 'In what specific direction are you and this person actually walking — not what you hope, but what your daily choices show?'
+  },
+  {
+    id: 'date-05', category: 'dating', title: 'Dating With a Destination',
+    reflection: "There is a difference between exploring a relationship with a real destination in view and drifting through one to fill a weekend. Purposeless dating trains you to fall in and out of attraction at the drop of a hat; purposeful dating trains you to evaluate, communicate, and build. Before your next date, it is worth being honest with yourself about which one you are actually doing.",
+    scriptureRef: '1 Corinthians 9:26 (KJV)',
+    scriptureText: 'I therefore so run, not as uncertainly; so fight I, not as one that beateth the air.',
+    prompt: 'If someone watched how you date, would they conclude you are running toward something — or just running?'
+  },
+  {
+    id: 'date-06', category: 'dating', title: 'Discipline Before Desire',
+    reflection: "Attraction will always show up uninvited; discipline is what decides what happens next. A dating relationship without self-control is a city with no walls — everything valuable inside it is exposed. This is not about suppressing genuine affection, but about refusing to let a feeling in the moment override a standard you set with a clear mind.",
+    scriptureRef: 'Proverbs 25:28 (KJV)',
+    scriptureText: 'He that hath no rule over his own spirit is like a city that is broken down, and without walls.',
+    prompt: 'Where in this relationship has a strong feeling recently overridden a standard you had set for yourself?'
+  },
+  {
+    id: 'date-07', category: 'dating', title: 'Let Your Words Build, Not Break',
+    reflection: "The words exchanged on ordinary dates do more shaping than the big declarations do. Careless teasing, sarcasm dressed as honesty, or venting dressed as vulnerability can quietly erode a relationship long before any major conflict arrives. A relationship's real health can often be measured in how its two people talk to each other on a completely unremarkable Tuesday.",
+    scriptureRef: 'Proverbs 15:4 (KJV)',
+    scriptureText: 'A wholesome tongue is a tree of life: but perverseness therein is a breach in the spirit.',
+    prompt: 'What is one phrase or tone you use with this person that you would not want to become a permanent habit?'
+  },
+  {
+    id: 'date-08', category: 'dating', title: 'Peace Is Not Optional',
+    reflection: "Excitement is loud and immediate; peace is quieter and more reliable. It is possible to feel thrilled about a relationship and unsettled about it at the very same time — and the unsettled part is usually the one worth listening to. Peace is not the absence of nerves before a big step; it is the absence of that persistent inner alarm that something is being ignored.",
+    scriptureRef: 'Colossians 3:15 (KJV)',
+    scriptureText: 'And let the peace of God rule in your hearts, to the which also ye are called in one body; and be ye thankful.',
+    prompt: 'Setting excitement aside for a moment, do you actually feel at peace about the direction of this relationship?'
   },
 
   // ---------------- ENGAGED ----------------
@@ -109,6 +175,20 @@ export const MEDITATIONS = [
     scriptureText: 'For which of you, intending to build a tower, sitteth not down first, and counteth the cost, whether he have sufficient to finish it?',
     prompt: 'Have you and your fiancé(e) actually looked at real numbers and real plans together, or only talked about the wedding day?'
   },
+  {
+    id: 'eng-05', category: 'engaged', title: 'Knowledge Before the Wedding Day',
+    reflection: "Love gets a couple to the altar; knowledge is what keeps them together long after the flowers have wilted. Many marriages struggle not from a shortage of affection but from a shortage of understanding — of finances, conflict, expectations, and each other. Engagement is the appointed season to actively go get that knowledge: premarital counseling, honest mentors, hard books — not to assume it will arrive automatically with the ring.",
+    scriptureRef: 'Hosea 4:6 (KJV)',
+    scriptureText: 'My people are destroyed for lack of knowledge: because thou hast rejected knowledge, I will also reject thee, that thou shalt be no priest to me.',
+    prompt: 'What specific source of marriage knowledge — a counselor, a course, a mentor couple — have you not yet pursued, and what is stopping you?'
+  },
+  {
+    id: 'eng-06', category: 'engaged', title: 'Doers, Not Just Hearers',
+    reflection: "It is easy to nod along in premarital counseling and feel prepared simply because the advice made sense. But advice that is only heard and never practiced changes nothing. The engaged couples who thrive are the ones who take a session's counsel and actually rehearse it that same week — the hard conversation, the budget meeting, the apology — rather than filing it away as something they agreed with.",
+    scriptureRef: 'James 1:22 (KJV)',
+    scriptureText: 'But be ye doers of the word, and not hearers only, deceiving your own selves.',
+    prompt: 'What is one piece of counsel you and your fiancé(e) have received but not yet actually practiced?'
+  },
 
   // ---------------- MARRIED ----------------
   {
@@ -138,6 +218,133 @@ export const MEDITATIONS = [
     scriptureRef: 'Hebrews 13:4 (KJV)',
     scriptureText: 'Marriage is honourable in all, and the bed undefiled: but whoremongers and adulterers God will judge.',
     prompt: 'What small daily habit protects your marriage — and is there one you have let slide?'
+  },
+
+  // ---------------- GUIDANCE ----------------
+  {
+    id: 'guide-01', category: 'guidance', title: 'Excitement Fades, Peace Confirms',
+    reflection: "Excitement can be manufactured by attention, novelty, or flattery — it tells you how a moment feels, not whether a direction is right. Peace is slower to arrive and harder to fake. Before a big relationship decision, it helps to separate the two questions honestly: am I excited about this, and, quite apart from that, am I actually at peace about it?",
+    scriptureRef: 'Philippians 4:6-7 (KJV)',
+    scriptureText: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.',
+    prompt: 'Name one decision in front of you right now. Are you chasing the excitement of it, or genuinely at peace about it?'
+  },
+  {
+    id: 'guide-02', category: 'guidance', title: 'Meekness Positions You to Be Led',
+    reflection: "A person who already thinks they have everything figured out is very hard to guide — by God, by wise counsel, or by a partner who sees something they cannot see in themselves. Meekness is not weakness; it is the willingness to actually be correctable. In relationships as much as anywhere else, guidance only lands on a heart that has left room to receive it.",
+    scriptureRef: 'James 1:21 (KJV)',
+    scriptureText: 'Wherefore lay apart all filthiness and superfluity of naughtiness, and receive with meekness the engrafted word, which is able to save your souls.',
+    prompt: 'When was the last time you actually changed your mind because someone else\u2019s counsel was better than your own plan?'
+  },
+  {
+    id: 'guide-03', category: 'guidance', title: 'There Is an Appointed Time',
+    reflection: "Some things genuinely will not be rushed, no matter how much pressure, comparison, or anxiety is applied to them. An appointed time is not a punishment for being late to your own life; it is simply the truth that certain outcomes are only ready when they are ready. The right response to a delay is not panic — it is steady preparation while you wait for it to arrive.",
+    scriptureRef: 'Habakkuk 2:3 (KJV)',
+    scriptureText: 'For the vision is yet for an appointed time, but at the end it shall speak, and not lie: though it tarry, wait for it; because it will surely come, it will not tarry.',
+    prompt: 'What are you currently tempted to force ahead of its appointed time?'
+  },
+  {
+    id: 'guide-04', category: 'guidance', title: 'Persistence Outlasts a Feeling',
+    reflection: "Motivation is a spark; persistence is what actually finishes the work after the spark burns out. Whether it is a season of waiting, a hard conversation you keep needing to have, or the daily discipline of a growing relationship, the outcome usually belongs to whoever kept showing up after the initial feeling wore off, not whoever felt the most at the start.",
+    scriptureRef: 'Galatians 6:9 (KJV)',
+    scriptureText: 'And let us not be weary in well doing: for in due season we shall reap, if we faint not.',
+    prompt: 'Where have you recently felt like giving up simply because the initial excitement wore off, not because the effort actually stopped being worth it?'
+  },
+  {
+    id: 'guide-05', category: 'guidance', title: 'Renewed Strength for the Next Season',
+    reflection: "A disappointment — a relationship that ended, a delay that outlasted your patience — does not have to be the final word on your strength. Renewal is a real, repeatable event, not a one-time miracle reserved for people who never got tired. You are allowed to be depleted by a season and still expect to be restored for the next one.",
+    scriptureRef: 'Psalm 103:5 (KJV)',
+    scriptureText: "Who satisfieth thy mouth with good things; so that thy youth is renewed like the eagle's.",
+    prompt: 'What season recently depleted you, and what would genuine renewal — not just moving on — actually look like?'
+  },
+
+  // ---------------- VISION ----------------
+  {
+    id: 'vision-01', category: 'vision', title: 'A Relationship Without Vision Drifts Toward Destruction',
+    reflection: "Two people can genuinely love each other and still slowly come apart for lack of a shared picture of where they are actually going. Love supplies the fuel, but vision supplies the direction — without it, a couple is not being led anywhere in particular, just carried by whatever season currently has the most pull. A relationship does not need a five-year plan to be safe, but it does need two people who can say, honestly, what they are building this for.",
+    scriptureRef: 'Proverbs 29:18 (KJV)',
+    scriptureText: 'Where there is no vision, the people perish: but he that keepeth the law, happy is he.',
+    prompt: 'If someone asked you and your partner separately "what is this relationship actually for", how different would your two answers be?'
+  },
+  {
+    id: 'vision-02', category: 'vision', title: 'Plan the Marriage, Not Just the Wedding',
+    reflection: "It is possible to spend a year planning a single day and almost no time planning the decades meant to follow it. Diligence — real, unglamorous planning — is what turns a hope into something durable; haste produces something that looks finished from the outside while the foundation underneath was never actually laid.",
+    scriptureRef: 'Proverbs 21:5 (KJV)',
+    scriptureText: 'The thoughts of the diligent tend only to plenteousness; but of every one that is hasty only to want.',
+    prompt: 'What has had more planning time so far: the event, or the actual life you are planning to build afterward?'
+  },
+  {
+    id: 'vision-03', category: 'vision', title: 'Two Cannot Walk Together Without Agreement',
+    reflection: "This is not a demand for identical opinions on everything; it is a question about direction. Two people can disagree on plenty of details and still walk together, as long as they have actually agreed on where they are headed. What quietly wears a relationship down is not disagreement — it is two people assuming they agree on the destination when they have never actually said it out loud.",
+    scriptureRef: 'Amos 3:3 (KJV)',
+    scriptureText: 'Can two walk together, except they be agreed?',
+    prompt: 'Where might you and your partner be assuming agreement on direction that you have never actually put into words?'
+  },
+  {
+    id: 'vision-04', category: 'vision', title: 'Write the Vision Down',
+    reflection: "A vision that only exists as a vague feeling is easy to lose in the noise of ordinary weeks. Writing it down — what you are actually building toward as a couple, in plain, specific language — turns a mood into something you can return to, measure against, and remind each other of when a hard season makes the direction hard to see.",
+    scriptureRef: 'Habakkuk 2:2 (KJV)',
+    scriptureText: 'And the LORD answered me, and said, Write the vision, and make it plain upon tables, that he may run that readeth it.',
+    prompt: 'If you wrote your relationship\u2019s vision down in a few plain sentences today, what would it actually say?'
+  },
+
+  // ---------------- FOR MEN ----------------
+  {
+    id: 'men-01', category: 'for-men', title: 'Understand Her, Don\u2019t Try to Convert Her',
+    reflection: "It is a quiet trap to treat a wife or partner as a project to be corrected into your own way of thinking, rather than a person to be understood. The instinct to fix, direct, or slowly reshape someone into a more convenient version of themselves usually says more about a man\u2019s own insecurity than about anything actually wrong with her. Real strength studies a partner well enough to know how to love her specifically, not how to make her easier to manage.",
+    scriptureRef: '1 Peter 3:7 (KJV)',
+    scriptureText: 'Likewise, ye husbands, dwell with them according to knowledge, giving honour unto the wife, as unto the weaker vessel, and as being heirs together of the grace of life; that your prayers be not hindered.',
+    prompt: 'Where have you recently tried to change your partner rather than genuinely trying to understand her?'
+  },
+  {
+    id: 'men-02', category: 'for-men', title: 'Am I Enough?',
+    reflection: "Underneath a lot of male performance — the need to always look capable, unaffected, in control — is a much younger question that never fully got answered: am I enough? Chasing an answer through achievement, image or a woman\u2019s approval will always need a bigger achievement tomorrow. The only answer sturdy enough to hold weight is the one that was never about your own sufficiency in the first place.",
+    scriptureRef: '2 Corinthians 3:5 (KJV)',
+    scriptureText: 'Not that we are sufficient of ourselves to think any thing as of ourselves; but our sufficiency is of God.',
+    prompt: 'Where are you currently trying to prove you are enough, instead of resting in a sufficiency that was never meant to come from you?'
+  },
+  {
+    id: 'men-03', category: 'for-men', title: 'Rest Before You Break',
+    reflection: "Weariness is not a character flaw, but where a tired man goes looking for relief matters enormously. A man who never admits he needs rest eventually finds it somewhere unsafe — a flattering distraction, a secret indulgence, a relationship that was never his to lean on. The strength to keep going and the humility to actually stop are not opposites; a man who never learns the second one eventually loses the first.",
+    scriptureRef: 'Matthew 11:28 (KJV)',
+    scriptureText: 'Come unto me, all ye that labour and are heavy laden, and I will give you rest.',
+    prompt: 'When you are genuinely worn out, where do you actually go for rest — and is it a safe place?'
+  },
+  {
+    id: 'men-04', category: 'for-men', title: 'Releasing What God Reassigns',
+    reflection: "Every season of strength eventually gives way to a new one — a role changes, someone younger rises, a body does not perform the way it once did. The temptation is to grip tighter exactly when it is time to release. A man who can only feel secure while he is winning, first, or irreplaceable has built his identity on something with an expiration date.",
+    scriptureRef: 'Ecclesiastes 3:1 (KJV)',
+    scriptureText: 'To every thing there is a season, and a time to every purpose under the heaven.',
+    prompt: 'What season of your life or identity are you currently gripping tightly, that might actually be ending?'
+  },
+
+  // ---------------- FOR WOMEN ----------------
+  {
+    id: 'women-01', category: 'for-women', title: 'You Are Not Defined by His Absence',
+    reflection: "The presence or absence of a father shapes how a woman first learns to expect love from men — but it does not have the final word on her worth. Whatever went unaffirmed in childhood is real, and it is also not permanent; it can be brought to a Father who does not run out of attention, approval, or presence, and who was never going to let an earthly gap be the final word on your identity.",
+    scriptureRef: '2 Corinthians 6:18 (KJV)',
+    scriptureText: 'And will be a Father unto you, and ye shall be my sons and daughters, saith the Lord Almighty.',
+    prompt: 'What is one thing you have been seeking from male attention that was actually always meant to come from knowing who you are?'
+  },
+  {
+    id: 'women-02', category: 'for-women', title: 'Gluttony Does Not Heal Starvation',
+    reflection: "When something real went unmet early on, it is tempting to try to fill it by taking in as much attention, affirmation or affection as you can get, as fast as you can get it. But more of the wrong thing does not heal a lack — it just becomes a different kind of hunger. What actually heals a real deficit is being genuinely supplied, not merely filled.",
+    scriptureRef: 'Philippians 4:19 (KJV)',
+    scriptureText: 'But my God shall supply all your need according to his riches in glory by Christ Jesus.',
+    prompt: 'Is there an old lack you have been trying to overcorrect for, rather than bring honestly to God to actually supply?'
+  },
+  {
+    id: 'women-03', category: 'for-women', title: 'The Right to Choose',
+    reflection: "Discernment is not the opposite of love; it is what makes love safe to give. Choosing someone because his treatment of you feels familiar — even when that familiarity is actually old pain wearing a new face — is not the same as choosing someone because he is genuinely worth trusting. The right to choose well is a real power. It is worth using slowly.",
+    scriptureRef: 'Proverbs 14:15 (KJV)',
+    scriptureText: 'The simple believeth every word: but the prudent man looketh well to his going.',
+    prompt: 'Is there a pattern that feels familiar in how someone is treating you right now, that is actually worth questioning rather than trusting?'
+  },
+  {
+    id: 'women-04', category: 'for-women', title: 'Arise Into Your Purpose',
+    reflection: "It is possible to spend a season quietly waiting for a relationship to finally begin real life — postponing dreams, growth and joy until someone else arrives to validate them. But purpose was never conditioned on a relationship status. Whatever season you are in right now is still a legitimate place to rise, grow, and pursue what you were actually made for.",
+    scriptureRef: 'Mark 5:41 (KJV)',
+    scriptureText: 'And he took the damsel by the hand, and said unto her, Talitha cumi; which is, being interpreted, Damsel, I say unto thee, arise.',
+    prompt: 'What have you been putting on hold until a relationship arrives, that you could actually rise into now?'
   }
 ];
 
