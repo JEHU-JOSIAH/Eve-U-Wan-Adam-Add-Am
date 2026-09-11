@@ -3,16 +3,20 @@
 // themes of the "seasons of love" framework popularized by teachers such as
 // Myles Munroe ("Waiting and Dating", "The Purpose and Power of Love and Marriage"),
 // Ben Stuart ("Single, Dating, Engaged, Married"), Faith Oyedepo ("Single With A
-// Difference", "Dating: A Biblical Guide"), David O. Oyedepo ("In Pursuit of Vision")
-// and T.D. Jakes ("T.D. Jakes Speaks to Men", "Daddy Loves His Girls").
-// These are NOT excerpts or reproductions of those books — no text from those copyrighted
-// works is copied here; only the general subject areas they teach on (e.g. "singleness as
-// a purposeful season", "peace as a test of guidance", "a marriage needs a shared vision",
-// "a man's identity apart from performance", "a woman's identity apart from a father's
-// absence") inspired which topics to write about, in entirely original wording. Each entry
-// pairs an original short reflection with a full King James Version scripture passage
-// (public domain) and a question to journal or discuss. Readers who want the authors' own
-// words are encouraged to read the original books.
+// Difference", "Dating: A Biblical Guide"), David O. Oyedepo ("In Pursuit of Vision"),
+// T.D. Jakes ("T.D. Jakes Speaks to Men", "Daddy Loves His Girls"), and recorded relationship
+// messages from Rev. Dr. Sam Oye, Apostle Joshua Selman, Pastor Kingsley & Mildred
+// Okonkwo, Bishop Funke Felix-Adejumo, and Dr. Paul & Pastor Becky Enenche.
+// These are NOT excerpts or reproductions of those books or messages — no text from those
+// copyrighted works is copied here; only the general subject areas they teach on (e.g.
+// "singleness as a purposeful season", "peace as a test of guidance", "a marriage needs a
+// shared vision", "a man's identity apart from performance", "a woman's identity apart from
+// a father's absence", "money mindsets in marriage", "generational family patterns",
+// "levels of relationship", "what a man provides beyond money") inspired which topics to
+// write about, in entirely original wording. Each entry pairs an original short reflection
+// with a full King James Version scripture passage (public domain) and a question to
+// journal or discuss. Readers who want the teachers' own words are encouraged to seek out
+// the original books and messages.
 
 export const MEDITATION_SOURCES = [
   { name: 'Waiting and Dating', author: 'Myles Munroe' },
@@ -22,7 +26,12 @@ export const MEDITATION_SOURCES = [
   { name: 'Dating: A Biblical Guide', author: 'Faith A. Oyedepo' },
   { name: 'In Pursuit of Vision', author: 'David O. Oyedepo' },
   { name: 'T.D. Jakes Speaks to Men', author: 'T.D. Jakes' },
-  { name: 'Daddy Loves His Girls', author: 'T.D. Jakes' }
+  { name: 'Daddy Loves His Girls', author: 'T.D. Jakes' },
+  { name: 'Relationship Today (recorded teaching)', author: 'Rev. Dr. Sam Oye' },
+  { name: 'Destiny Doors & Destiny Relationships (recorded teaching)', author: 'Apostle Joshua Selman' },
+  { name: 'Marriage & Money Mindsets (recorded teaching)', author: 'Pastor Kingsley & Mildred Okonkwo' },
+  { name: 'Faith, Marriage & Ministry conversation (recorded teaching)', author: 'Bishop Funke Felix-Adejumo' },
+  { name: 'Godly Marital Relationships (recorded teaching)', author: 'Dr. Paul & Pastor Becky Enenche' }
 ];
 
 export const MEDITATION_CATEGORIES = [
@@ -33,7 +42,9 @@ export const MEDITATION_CATEGORIES = [
   { id: 'guidance', label: 'Guidance', icon: '🧭', tagline: 'Purpose, discernment and hearing God clearly in every season.' },
   { id: 'vision', label: 'Vision', icon: '🎯', tagline: 'Where there is no vision for a relationship, it drifts toward destruction.' },
   { id: 'for-men', label: 'For Men', icon: '🛡️', tagline: 'Identity, rest and leadership that comes from character, not performance.' },
-  { id: 'for-women', label: 'For Women', icon: '💎', tagline: 'Worth, discernment and destiny that were never on loan from a man.' }
+  { id: 'for-women', label: 'For Women', icon: '💎', tagline: 'Worth, discernment and destiny that were never on loan from a man.' },
+  { id: 'money', label: 'Money & Marriage', icon: '💰', tagline: 'Money habits are relationship habits — handle both with the same integrity.' },
+  { id: 'roots', label: 'Family Roots', icon: '🌳', tagline: 'You didn\u2019t choose the family that raised you. You do choose what you pass on.' }
 ];
 
 export const MEDITATIONS = [
@@ -86,6 +97,20 @@ export const MEDITATIONS = [
     scriptureRef: 'Psalm 89:34 (KJV)',
     scriptureText: 'My covenant will I not break, nor alter the thing that is gone out of my lips.',
     prompt: 'Where have you recently broken a small promise, and what would it look like to go back and repair it?'
+  },
+  {
+    id: 'wait-08', category: 'waiting', title: 'Positioning, Not Just Praying',
+    reflection: "Readiness is not a feeling you wait to arrive; it is a posture you build on purpose. Being available means actually being open to the idea, not secretly attached to someone else. Being approachable means your countenance invites conversation rather than guarding against it. Being accessible means you exist somewhere beyond your own four walls. Being attractive means the character and habits people are drawn to are actually being cultivated. And some doors only move with focused, specific prayer. Waiting well includes all five.",
+    scriptureRef: 'Matthew 25:13 (KJV)',
+    scriptureText: 'Watch therefore, for ye know neither the day nor the hour wherein the Son of man cometh.',
+    prompt: 'Of the five — available, approachable, accessible, attractive, prayerful — which one have you actually been neglecting?'
+  },
+  {
+    id: 'wait-09', category: 'waiting', title: 'If You Cannot Be Friends First',
+    reflection: "Attraction can happen in a moment; friendship has to be built. A relationship that skips straight to romantic intensity without ever developing genuine friendship is missing the part that actually survives hard seasons — the part that enjoys the other person's company, tells them the truth, and sticks around when the excitement dips. If you cannot picture being this person's friend, the foundation for marrying them is not there yet either.",
+    scriptureRef: 'Proverbs 18:24 (KJV)',
+    scriptureText: 'A man that hath friends must shew himself friendly: and there is a friend that sticketh closer than a brother.',
+    prompt: 'Setting the romantic attraction aside for a moment, would you describe this person as a genuine friend?'
   },
 
   // ---------------- DATING ----------------
@@ -144,6 +169,20 @@ export const MEDITATIONS = [
     scriptureRef: 'Colossians 3:15 (KJV)',
     scriptureText: 'And let the peace of God rule in your hearts, to the which also ye are called in one body; and be ye thankful.',
     prompt: 'Setting excitement aside for a moment, do you actually feel at peace about the direction of this relationship?'
+  },
+  {
+    id: 'date-09', category: 'dating', title: 'Four Tests Before You Commit',
+    reflection: "Conviction: does this actually align with what you know to be wise, or only with what you want? Peace: is there a settled quiet about this, or a persistent unease you keep talking yourself out of? Love: is what you feel patient, kind and honest, or mostly urgency? Time: has this been observed across real seasons, or only during the easiest, most flattering weeks? None of these four tests, on its own, is proof. Together, over time, they are hard to fake.",
+    scriptureRef: '1 Thessalonians 5:21 (KJV)',
+    scriptureText: 'Prove all things; hold fast that which is good.',
+    prompt: 'Which of the four tests — conviction, peace, love, time — has this relationship actually not yet passed?'
+  },
+  {
+    id: 'date-10', category: 'dating', title: 'Assume Nothing',
+    reflection: "It is possible to date someone for a long time and still not really know them — their true history, their actual character under pressure, what they are like when no one important is watching. Assuming you know someone because the relationship feels familiar is different from having actually verified it. Marriage should not be the moment you first discover who you really married.",
+    scriptureRef: '2 Corinthians 13:1 (KJV)',
+    scriptureText: 'This is the third time I am coming to you. In the mouth of two or three witnesses shall every word be established.',
+    prompt: 'What do you actually know about this person from independent evidence, versus what you have simply assumed or been told by them alone?'
   },
 
   // ---------------- ENGAGED ----------------
@@ -219,6 +258,20 @@ export const MEDITATIONS = [
     scriptureText: 'Marriage is honourable in all, and the bed undefiled: but whoremongers and adulterers God will judge.',
     prompt: 'What small daily habit protects your marriage — and is there one you have let slide?'
   },
+  {
+    id: 'mar-05', category: 'married', title: 'Four Small Phrases That Protect a Marriage',
+    reflection: "\"Please.\" \"I am sorry.\" \"Thank you.\" \"I love you.\" None of these cost anything, and none of them are complicated — which is exactly why they get skipped once a marriage feels settled. But these small courtesies are what keep two people relating to each other as honored guests rather than furniture. A marriage that stops saying them out loud has not necessarily stopped loving; it has simply stopped showing it in the smallest, most repeatable ways.",
+    scriptureRef: 'Colossians 4:6 (KJV)',
+    scriptureText: 'Let your speech be alway with grace, seasoned with salt, that ye may know how ye ought to answer every man.',
+    prompt: 'Which of these four phrases have you said the least this week, and to whom does it need to be said?'
+  },
+  {
+    id: 'mar-06', category: 'married', title: 'What God Joined, Let No One Else Manage',
+    reflection: "Every marriage exists inside a wider circle of parents, relatives and close friends whose opinions matter and whose love is usually genuine. But there is a difference between welcoming their input and letting them quietly run the marriage from the outside. Protecting the boundary around your covenant is not disrespect toward family; it is what actually lets two people become one without a third, fourth and fifth voice steering from the sidelines.",
+    scriptureRef: 'Mark 10:8-9 (KJV)',
+    scriptureText: 'And they twain shall be one flesh: so then they are no more twain, but one flesh. What therefore God hath joined together, let not man put asunder.',
+    prompt: 'Where has outside input on your marriage quietly become outside control?'
+  },
 
   // ---------------- GUIDANCE ----------------
   {
@@ -256,6 +309,20 @@ export const MEDITATIONS = [
     scriptureText: "Who satisfieth thy mouth with good things; so that thy youth is renewed like the eagle's.",
     prompt: 'What season recently depleted you, and what would genuine renewal — not just moving on — actually look like?'
   },
+  {
+    id: 'guide-06', category: 'guidance', title: 'Forgiveness Is for an Offense; Tolerance Is for a Pattern',
+    reflection: "These two get confused constantly, and confusing them causes real harm. Forgiveness releases a person from a specific wrong that has already happened — it looks backward. Tolerance keeps absorbing a pattern that is still actively happening — it looks forward, and often enables the very thing it should be resisting. You can forgive someone completely and still refuse to keep tolerating what they are still doing. The two are not the same decision.",
+    scriptureRef: 'Mark 11:25 (KJV)',
+    scriptureText: 'And when ye stand praying, forgive, if ye have ought against any: that your Father also which is in heaven may forgive you your trespasses.',
+    prompt: 'Is there something you have been calling "forgiveness" that is actually just ongoing tolerance of ongoing harm?'
+  },
+  {
+    id: 'guide-07', category: 'guidance', title: 'Release What Is Occupying You',
+    reflection: "It is hard to receive what is next while still emotionally occupied by what came before — an old relationship never fully grieved, a rejection never fully processed, a version of a plan that never fully died. Guidance does not usually get louder to compete with the noise already inside you; it waits for room to be made. Letting go is not forgetting. It is making space.",
+    scriptureRef: 'Isaiah 43:18-19 (KJV)',
+    scriptureText: 'Remember ye not the former things, neither consider the things of old. Behold, I will do a new thing; now it shall spring forth; shall ye not know it?',
+    prompt: 'What from a former season is still quietly occupying space that a new season actually needs?'
+  },
 
   // ---------------- VISION ----------------
   {
@@ -285,6 +352,13 @@ export const MEDITATIONS = [
     scriptureRef: 'Habakkuk 2:2 (KJV)',
     scriptureText: 'And the LORD answered me, and said, Write the vision, and make it plain upon tables, that he may run that readeth it.',
     prompt: 'If you wrote your relationship\u2019s vision down in a few plain sentences today, what would it actually say?'
+  },
+  {
+    id: 'vision-05', category: 'vision', title: 'Vision Is a Form of Security',
+    reflection: "A clear sense of direction does something quiet but powerful for a relationship: it makes both people feel safe enough to invest fully, rather than holding part of themselves back in case the whole thing is going nowhere. A household with no direction can still have affection in it, but it will struggle to have confidence in it. Vision is not only about where you end up — it is part of what makes the people inside it feel secure enough to stay wholehearted along the way.",
+    scriptureRef: 'Genesis 18:19 (KJV)',
+    scriptureText: 'For I know him, that he will command his children and his household after him, and they shall keep the way of the LORD.',
+    prompt: 'Does your household currently run on a direction you have actually communicated, or on assumption and habit?'
   },
 
   // ---------------- FOR MEN ----------------
@@ -316,6 +390,27 @@ export const MEDITATIONS = [
     scriptureText: 'To every thing there is a season, and a time to every purpose under the heaven.',
     prompt: 'What season of your life or identity are you currently gripping tightly, that might actually be ending?'
   },
+  {
+    id: 'men-05', category: 'for-men', title: 'Provide More Than Money',
+    reflection: "Financial provision is real and it matters, but it is only one kind of security a household needs. There is spiritual security — a man whose household can see his convictions in his actual life. There is a sense of direction, physical safety, emotional availability, integrity that holds under pressure, and a willingness to actually answer for his choices to someone. A man who provides money but nothing else has covered one need out of several.",
+    scriptureRef: 'Joshua 24:15 (KJV)',
+    scriptureText: 'And if it seem evil unto you to serve the LORD, choose you this day whom ye will serve\u2026 but as for me and my house, we will serve the LORD.',
+    prompt: 'Beyond money, which kind of security has your household actually been missing from you?'
+  },
+  {
+    id: 'men-06', category: 'for-men', title: 'Accountability Protects Leadership',
+    reflection: "A man who answers to no one is not more free; he is simply unprotected. Every serious moral collapse tends to share one thing in common — a season where no one was close enough, or trusted enough, to ask the hard question and expect a real answer. Real strength includes being genuinely correctable by people who have earned the right to speak into your life.",
+    scriptureRef: 'Proverbs 11:14 (KJV)',
+    scriptureText: 'Where no counsel is, the people fall: but in the multitude of counsellors there is safety.',
+    prompt: 'Who currently has real permission to ask you a hard question and expect an honest answer?'
+  },
+  {
+    id: 'men-07', category: 'for-men', title: 'Beware the Ladder Trap',
+    reflection: "It is possible to build genuine influence and still quietly begin treating people as rungs — useful in proportion to what they can do for you. A relationship built for what it can provide will eventually be dropped the moment it stops providing. True greatness in leadership was never measured by how many people serve you, but by how well you serve the people entrusted to you.",
+    scriptureRef: 'Mark 10:45 (KJV)',
+    scriptureText: 'For even the Son of man came not to be ministered unto, but to minister, and to give his life a ransom for many.',
+    prompt: 'Is there a relationship in your life you have started treating as useful rather than as someone to genuinely serve?'
+  },
 
   // ---------------- FOR WOMEN ----------------
   {
@@ -345,6 +440,101 @@ export const MEDITATIONS = [
     scriptureRef: 'Mark 5:41 (KJV)',
     scriptureText: 'And he took the damsel by the hand, and said unto her, Talitha cumi; which is, being interpreted, Damsel, I say unto thee, arise.',
     prompt: 'What have you been putting on hold until a relationship arrives, that you could actually rise into now?'
+  },
+  {
+    id: 'women-05', category: 'for-women', title: 'Refined, Not Diminished',
+    reflection: "Grace and dignity are not the same as making yourself smaller. A woman does not need to shrink her voice, her intelligence or her convictions to be received well by a man worth receiving. Meekness in scripture was never weakness — it was strength that has chosen not to force itself. That is a very different thing from strength that was never allowed to exist in the first place.",
+    scriptureRef: '1 Peter 3:4 (KJV)',
+    scriptureText: 'But let it be the hidden man of the heart, in that which is not corruptible, even the ornament of a meek and quiet spirit, which is in the sight of God of great price.',
+    prompt: 'Is there a part of yourself you have been shrinking to be more easily accepted, rather than genuinely offering in strength?'
+  },
+  {
+    id: 'women-06', category: 'for-women', title: 'Build Your Own Financial Base',
+    reflection: "Financial stewardship is not about preparing for a marriage to fail — it is about entering or staying in one as a capable steward rather than a dependent liability. A woman who works, saves, and invests with her own hands is not competing with her husband's provision; she is strengthening the household's whole foundation, and protecting her own dignity and options no matter what seasons come.",
+    scriptureRef: 'Proverbs 31:16 (KJV)',
+    scriptureText: 'She considereth a field, and buyeth it: with the fruit of her hands she planteth a vineyard.',
+    prompt: 'What is one concrete step you could take this month to build your own financial base, regardless of your relationship status?'
+  },
+  {
+    id: 'women-07', category: 'for-women', title: 'Don\u2019t Make Him Your God',
+    reflection: "It is a heavy, impossible weight to be someone's entire source of identity, security and worship — and no man, however good, can bear it without eventually failing under it. When God holds first place, a husband is free to simply be a husband: present, loved, human, and imperfect, without being asked to function as your savior. That arrangement is safer for both of you.",
+    scriptureRef: 'Exodus 20:3 (KJV)',
+    scriptureText: 'Thou shalt have no other gods before me.',
+    prompt: 'Is there a place in your heart currently expecting a man to be what only God was ever meant to be?'
+  },
+
+  // ---------------- MONEY & MARRIAGE ----------------
+  {
+    id: 'money-01', category: 'money', title: 'God, Not Your Spouse, Is the Source',
+    reflection: "It is easy to quietly transfer the job of \"provider\" from God onto a spouse, and then feel betrayed whenever they cannot fully carry it. A spouse is a channel God can use, not the source itself. That distinction matters practically: it keeps you from panicking as though your future collapsed when a job is lost, and it keeps you from silently resenting a spouse for not being able to do what was never actually theirs to guarantee.",
+    scriptureRef: 'Haggai 2:8 (KJV)',
+    scriptureText: 'The silver is mine, and the gold is mine, saith the LORD of hosts.',
+    prompt: 'Have you been quietly expecting your spouse to be your source, rather than a channel God is using?'
+  },
+  {
+    id: 'money-02', category: 'money', title: 'Agree Before You Argue',
+    reflection: "Most money conflict in marriage is not really about the money; it is about two people discovering, in the heat of a decision, that they never actually agreed on a shared financial direction in the first place. Sitting down while calm to agree on priorities, limits and goals turns future disagreements into a matter of checking the plan, rather than relitigating the whole relationship every time a bill or a want shows up.",
+    scriptureRef: 'Matthew 18:19 (KJV)',
+    scriptureText: 'Again I say unto you, That if two of you shall agree on earth as touching any thing that they shall ask, it shall be done for them of my Father which is in heaven.',
+    prompt: 'What financial decision keeps causing tension because you and your partner never actually agreed on it in advance?'
+  },
+  {
+    id: 'money-03', category: 'money', title: 'Transparency Is Not Optional',
+    reflection: "Financial secrecy in a marriage — a hidden account, an undisclosed debt, spending neither partner can see — behaves exactly like any other secret: it quietly teaches both people that the relationship cannot fully be trusted with the truth. Real financial partnership does not require identical opinions on every purchase, but it does require that nothing about the household's money is deliberately hidden from the person who shares the household.",
+    scriptureRef: 'Luke 8:17 (KJV)',
+    scriptureText: 'For nothing is secret, that shall not be made manifest; neither any thing hid, that shall not be known and come abroad.',
+    prompt: 'Is there any part of your financial life right now that your spouse or partner does not actually know about?'
+  },
+  {
+    id: 'money-04', category: 'money', title: 'Generosity Over a Rigid Split',
+    reflection: "A marriage run purely on \"my half, your half\" tends to calcify into keeping score. A marriage run on generosity — each person contributing according to capacity and season, not a fixed formula — flexes naturally when one partner earns more, less, or nothing for a while. Rigid fairness protects an individual. Generosity protects a partnership.",
+    scriptureRef: '2 Corinthians 9:7 (KJV)',
+    scriptureText: 'Every man according as he purposeth in his heart, so let him give; not grudgingly, or of necessity: for God loveth a cheerful giver.',
+    prompt: 'Is your household currently run more on rigid fairness or on generous partnership — and which season actually calls for which?'
+  },
+  {
+    id: 'money-05', category: 'money', title: 'Save for Tomorrow Without Starving Today',
+    reflection: "Spending everything as it arrives leaves a household one bad season away from crisis. Hoarding everything out of fear leaves a household unable to actually enjoy what it has been given. Wisdom holds both together — living generously and gratefully in the present while still, deliberately, setting something aside for a future that has not asked permission to arrive.",
+    scriptureRef: 'Proverbs 21:20 (KJV)',
+    scriptureText: 'There is treasure to be desired and oil in the dwelling of the wise; but a foolish man spendeth it up.',
+    prompt: 'What percentage of what comes into your household is actually being set aside on purpose, rather than simply spent as it arrives?'
+  },
+
+  // ---------------- FAMILY ROOTS ----------------
+  {
+    id: 'roots-01', category: 'roots', title: 'Roots and Fruits',
+    reflection: "Whatever you watched modeled at home — how conflict was handled, how love was shown or withheld, how money or anger or silence was used — tends to show up again in your own relationships unless it is deliberately examined. This is not about blame; the people who raised you were often simply repeating what they inherited too. It is about noticing, on purpose, before repeating it becomes automatic.",
+    scriptureRef: 'Proverbs 22:6 (KJV)',
+    scriptureText: 'Train up a child in the way he should go: and when he is old, he will not depart from it.',
+    prompt: 'What pattern from the home you grew up in have you noticed quietly showing up in how you relate to others?'
+  },
+  {
+    id: 'roots-02', category: 'roots', title: 'What Is Tolerated Gets Repeated',
+    reflection: "A dysfunctional pattern rarely announces itself as dysfunction; it usually arrives disguised as \"just how things are.\" The moment a harmful pattern gets quietly normalized instead of named, it stops being questioned — and what goes unquestioned in one generation tends to simply continue into the next. Naming a pattern honestly, even when it is uncomfortable, is the first real interruption of it.",
+    scriptureRef: 'James 3:16 (KJV)',
+    scriptureText: 'For where envying and strife is, there is confusion and every evil work.',
+    prompt: 'What pattern in your family has always been treated as normal, that actually deserves to be questioned?'
+  },
+  {
+    id: 'roots-03', category: 'roots', title: 'Breaking the Cycle Is Possible',
+    reflection: "Whatever was learned by watching can also be unlearned on purpose. A family history of a certain kind of failure is not a prophecy over your own life — it is simply data about what you will need to be intentional about. Plenty of people have become the first in their family line to do something differently, not because their past was easier than anyone else's, but because they decided the cycle would end with them.",
+    scriptureRef: '2 Corinthians 5:17 (KJV)',
+    scriptureText: 'Therefore if any man be in Christ, he is a new creature: old things are passed away; behold, all things are become new.',
+    prompt: 'What specific cycle from your family history are you determined will end with you?'
+  },
+  {
+    id: 'roots-04', category: 'roots', title: 'Discretion Should Govern Disclosure',
+    reflection: "Honesty about your past does not require dumping every detail onto someone the moment you meet them, nor does it mean hiding everything indefinitely out of shame. Trust is built in layers, and what gets shared can be paced to match how much trust has actually been earned on both sides. Wisdom is not the same as secrecy, and vulnerability is not the same as having no filter.",
+    scriptureRef: 'Ecclesiastes 3:7 (KJV)',
+    scriptureText: 'A time to rend, and a time to sew; a time to keep silence, and a time to speak.',
+    prompt: 'Is there something about your past you have either over-shared too early, or are still hiding out of unnecessary shame?'
+  },
+  {
+    id: 'roots-05', category: 'roots', title: 'Forgiving Your Past Without Excusing It',
+    reflection: "Forgiving a parent or a painful history does not mean pretending it did not happen or was acceptable. It means releasing the grip that unresolved bitterness has on you specifically, so it stops quietly steering decisions in your present relationships. Unforgiveness rarely punishes the person who caused the wound; it usually just keeps punishing the person still carrying it.",
+    scriptureRef: 'Hebrews 12:15 (KJV)',
+    scriptureText: 'Looking diligently lest any man fail of the grace of God; lest any root of bitterness springing up trouble you, and thereby many be defiled.',
+    prompt: 'Is there a root of bitterness from your family history that may still be quietly shaping how you relate to others?'
   }
 ];
 
