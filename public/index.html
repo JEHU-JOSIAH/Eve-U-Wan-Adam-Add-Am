@@ -147,7 +147,7 @@ footer b{color:var(--gold-soft)}
   <h2>Before you choose someone better, try and better yourself.</h2>
   <p class="note">A relationship discernment game built from the Love With Purpose foundation. Each round presents 12 scenarios, displays your grading and scores, then lets you continue with everything you have already revealed — or end the journey.</p>
   <div class="actiongrid">
-    <div class="actioncard gold" onclick="startSetup('duel')"><div class="aicon">💛</div><b>2-Player Private Assessment</b><span>You and a partner answer privately, then compare alignment and growth areas.</span></div>
+    <div class="actioncard gold" onclick="show('duelOnline')"><div class="aicon">💛</div><b>2-Player Private Assessment</b><span>Connect online with a partner — each of you answers privately and simultaneously from your own device.</span></div>
     <div class="actioncard" onclick="show('practiceSolo')"><div class="aicon">🧭</div><b>Practice Solo</b><span>Learn the decision engine on your own before playing with someone else.</span></div>
     <div class="actioncard" onclick="show('host')"><div class="aicon">👥</div><b>Host 2–8 Players</b><span>Start a private room and invite friends or a group to join from their own device.</span></div>
     <div class="actioncard" onclick="show('join')"><div class="aicon">🔑</div><b>Join Room</b><span>Enter a room code someone shared with you and jump straight in.</span></div>
@@ -186,7 +186,34 @@ footer b{color:var(--gold-soft)}
 
 <section id="join" class="card hidden"><h2>Join a Room</h2><div class="grid"><input id="jn" class="input" placeholder="Your display name"><input id="jc" class="input" placeholder="Room code"></div><button class="btn primary" onclick="joinRoom()" style="margin-top:12px">Join</button><button class="btn" onclick="show('home')" style="margin-top:10px">Back</button><p id="msg" class="note"></p></section>
 
-<section id="lobby" class="card hidden"><h2>Room <span id="code"></span></h2><p class="note">Share the code. Everyone answers from his or her own device. Answers are kept private until the round is complete.</p><div id="people"></div><button id="startRoom" class="btn primary hidden" onclick="socket.emit('start',room)" style="margin-top:12px">Start Challenge</button></section>
+<section id="lobby" class="card hidden"><h2>Room <span id="code"></span></h2><p class="note">Share the code. Everyone answers from his or her own device. Answers are kept private until the round is complete.</p><div id="people"></div><button id="startRoom" class="btn primary hidden" onclick="startMultiplayerRound()" style="margin-top:12px">Start Challenge</button></section>
+
+<!-- ---------------- ONLINE 2-PLAYER DUEL ---------------- -->
+<section id="duelOnline" class="card hidden">
+  <h2>💛 2-Player Private Assessment</h2>
+  <p class="note">Each of you answers privately and simultaneously from your own device — no passing the phone. Create a room and share the code, or join one your partner already started.</p>
+  <div class="grid"><input id="don" class="input" placeholder="Your name"><select id="dogender" class="input"><option value="unspecified">Gender not specified</option><option value="man">Man</option><option value="woman">Woman</option></select></div>
+  <button class="btn primary" onclick="createDuelRoom()" style="margin-top:12px">Create Room</button>
+  <div class="row" style="margin-top:10px"><input id="dojoincode" class="input" placeholder="Room code from your partner"><button class="btn" onclick="joinDuelRoom()">Join Room</button></div>
+  <button class="btn" onclick="show('home')" style="margin-top:10px">Back</button>
+  <p id="domsg" class="note"></p>
+</section>
+
+<section id="duelLobby" class="card hidden">
+  <h2>Room <span id="docode"></span></h2>
+  <p class="note" id="dolobbynote">Share this code with your partner. Waiting for both of you to be ready...</p>
+  <div id="dopeople"></div>
+  <button id="doStart" class="btn primary hidden" onclick="startDuelOnline()" style="margin-top:12px">Start</button>
+  <button class="btn" onclick="show('home')" style="margin-top:10px">Cancel</button>
+</section>
+
+<section id="duelWaiting" class="card hidden">
+  <div class="solohero">
+    <div class="bigicon">⏳</div>
+    <h2>Waiting for your partner...</h2>
+    <p class="note">You've completed this round. Your answers stay private until your partner finishes too — the comparison unlocks the moment they do.</p>
+  </div>
+</section>
 
 <!-- ---------------- MEDITATION PAGE ---------------- -->
 <section id="meditation" class="card hidden">
@@ -207,8 +234,10 @@ import {blankPlayer,applyAnswer,applyConsequenceAnswer,comparePlayers,comparison
 import {MEDITATION_CATEGORIES,MEDITATIONS,MEDITATION_SOURCES} from '/src/meditation.js';
 const socket=io();
 let mode=null,player=null,partner=null,index=0,room=null,waiting=false,duelStage=1,plan=[],baseCount=0,testsAdded=false,consequencesAdded=false,totalTurns=18;let roundNumber=1,roundSize=12,roundStartSnapshot=null,roundResults=[];let duelPlayer1=null,duelPlayer2=null,duelRoundStart1=null,duelRoundStart2=null;let multiRoundWaiting=false;
+let duelRoom=null,duelIsHost=false,duelName='',duelGender='unspecified',duelPartnerSnapshot=null;
 const roundBase=()=>ROUND_BANKS[roundNumber]||QUESTIONS;
 const $=id=>document.getElementById(id);
+function applyGenderVariant(q,gender){const v=q&&q.genderVariant&&q.genderVariant[gender];if(!v)return q;return {...q,prompt:v.prompt||q.prompt,options:v.options||q.options};}
 const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 window.show=id=>{document.querySelectorAll('section').forEach(s=>s.classList.add('hidden'));$(id).classList.remove('hidden');document.querySelectorAll('.navlink').forEach(b=>b.classList.toggle('active',b.dataset.nav===id));window.scrollTo({top:0,behavior:'smooth'})};
 window.startSetup=m=>{mode=m;duelStage=1;partner=null;player=null;roundNumber=1;roundSize=12;roundStartSnapshot=null;roundResults=[];multiRoundWaiting=false;duelPlayer1=null;duelPlayer2=null;duelRoundStart1=null;duelRoundStart2=null;$('setupTitle').textContent=m==='duel'?'2-Player Private Assessment':'Solo Practice';$('setupNote').textContent=m==='duel'?'Player 1: choose MAN or WOMAN. Player 2 will answer privately afterwards and must be the opposite gender for the two-person assessment.':'Use this mode to learn the decision engine before playing with someone else.';$('pname').value='';$('gender').value='unspecified';show('setup')};
@@ -220,7 +249,7 @@ window.beginAssessment=()=>{
  if(mode==='duel' && duelStage===1 && duelPlayer1){player=duelPlayer1;}else if(mode==='duel' && duelStage===2 && duelPlayer2){player=duelPlayer2;}else{player=initializeDirector(blankPlayer('local-'+duelStage,n,g));}player.name=n;player.gender=g;index=0;waiting=false;plan=[];roundStartSnapshot=JSON.parse(JSON.stringify(player));if(mode==='duel'){if(duelStage===1)duelRoundStart1=roundStartSnapshot;else duelRoundStart2=roundStartSnapshot;}baseCount=0;testsAdded=false;consequencesAdded=false;
  const first=chooseNextScenario(player,{base:roundBase(),consistency:CONSISTENCY_TESTS,consequence:CONSEQUENCE_SCENARIOS});
  if(!first)return alert('The scenario director could not start.');
- plan.push({...first.question,directorSource:first.source,directorReason:first.reason});
+ plan.push(applyGenderVariant({...first.question,directorSource:first.source,directorReason:first.reason},player.gender));
  baseCount=plan.length; show('game');renderQuestion();
 };
 let paused=false;
@@ -252,11 +281,11 @@ function pick(i){
 window.continueAfterReflection=()=>{
  waiting=false;
  player=recordDirectorTurn(player,plan[index],plan[index].directorSource,plan[index].directorReason);
- if(index+1>=roundSize){if(mode==='duel') {if(duelStage===1)showDuelPlayerRoundReport(); else showDuelCombinedRoundReport();} else showRoundReport();return}
+ if(index+1>=roundSize){if(mode==='duel') {if(duelStage===1)showDuelPlayerRoundReport(); else showDuelCombinedRoundReport();} else if(mode==='duel-online'){submitDuelRoundOnline();return;} else showRoundReport();return}
  index++;
  const next=chooseNextScenario(player,{base:roundBase(),consistency:CONSISTENCY_TESTS,consequence:CONSEQUENCE_SCENARIOS});
  if(!next){showRoundReport();return}
- plan[index]={...next.question,directorSource:next.source,directorReason:next.reason};
+ plan[index]=applyGenderVariant({...next.question,directorSource:next.source,directorReason:next.reason},player.gender);
  renderQuestion();
 };
 function roundScore(p,startOverride=null){
@@ -306,7 +335,7 @@ window.continueRound=()=>{
  roundNumber++; index=0; plan=[]; waiting=false; roundStartSnapshot=JSON.parse(JSON.stringify(player));
  const first=chooseNextScenario(player,{base:roundBase(),consistency:CONSISTENCY_TESTS,consequence:CONSEQUENCE_SCENARIOS});
  if(!first){finishSingle();return}
- plan.push({...first.question,directorSource:first.source,directorReason:first.reason});
+ plan.push(applyGenderVariant({...first.question,directorSource:first.source,directorReason:first.reason},player.gender));
  show('game');renderQuestion();
 };
 window.endJourney=()=>{
@@ -343,9 +372,85 @@ function renderComparison(c){
  return html+'</div>';
 }
 window.hostRoom=max=>{const n=$('hn').value.trim();if(!n)return alert('Enter your name.');socket.emit('createRoom',{name:n,max},r=>{if(!r.ok)return alert(r.error);room=r.room;show('lobby');$('code').textContent=room;$('startRoom').classList.remove('hidden')})};
+window.startMultiplayerRound=()=>socket.emit('start',room);
 window.joinRoom=()=>{const n=$('jn').value.trim(),c=$('jc').value.trim().toUpperCase();if(!n||!c)return;socket.emit('joinRoom',{name:n,room:c},r=>{if(!r.ok)$('msg').textContent=r.error;else{room=r.room;show('lobby');$('code').textContent=room}})};
-socket.on('room',r=>{$('people').innerHTML=r.players.map((p,i)=>`<div class="row between"><span>${i+1}. ${esc(p.name)}</span><span class="pill">${p.answered?'answered':'ready'}</span></div>`).join('')});
-socket.on('start',()=>{mode='multi';index=0;roundNumber=1;multiRoundWaiting=false;show('game');renderMulti()});
+socket.on('room',r=>{
+ $('people').innerHTML=r.players.map((p,i)=>`<div class="row between"><span>${i+1}. ${esc(p.name)}</span><span class="pill">${p.answered?'answered':'ready'}</span></div>`).join('');
+ if(duelRoom){
+  $('dopeople').innerHTML=r.players.map((p,i)=>`<div class="row between"><span>${i+1}. ${esc(p.name)}${p.gender&&p.gender!=='unspecified'?' ('+esc(p.gender)+')':''}</span><span class="pill">${p.id===socket.id?'You':'Ready'}</span></div>`).join('');
+  if(duelIsHost && r.players.length===2){$('doStart').classList.remove('hidden');$('dolobbynote').textContent='Both of you are in. Click Start when ready.'}
+  if(mode==='duel-online' && r.players.length<2){alert('Your partner disconnected from the room.');resetApp();}
+ }
+});
+socket.on('start',()=>{
+ if(duelRoom){beginDuelOnlineRound();return;}
+ mode='multi';index=0;roundNumber=1;multiRoundWaiting=false;show('game');renderMulti();
+});
+window.createDuelRoom=()=>{
+ duelName=$('don').value.trim();duelGender=$('dogender').value;
+ if(!duelName)return alert('Enter your name.');
+ socket.emit('createRoom',{name:duelName,max:2,gender:duelGender,mode:'duel'},r=>{
+  if(!r.ok)return alert(r.error);
+  duelRoom=r.room;duelIsHost=true;
+  show('duelLobby');$('docode').textContent=duelRoom;
+ });
+};
+window.joinDuelRoom=()=>{
+ duelName=$('don').value.trim();duelGender=$('dogender').value;
+ const c=$('dojoincode').value.trim().toUpperCase();
+ if(!duelName||!c)return alert('Enter your name and the room code.');
+ socket.emit('joinRoom',{name:duelName,room:c,gender:duelGender},r=>{
+  if(!r.ok){$('domsg').textContent=r.error;return}
+  duelRoom=r.room;duelIsHost=false;
+  show('duelLobby');$('docode').textContent=duelRoom;
+ });
+};
+window.startDuelOnline=()=>{if(duelIsHost)socket.emit('start',duelRoom)};
+function beginDuelOnlineRound(){
+ mode='duel-online';roundNumber=1;index=0;plan=[];waiting=false;duelPartnerSnapshot=null;
+ player=initializeDirector(blankPlayer(socket.id,duelName,duelGender));
+ roundStartSnapshot=JSON.parse(JSON.stringify(player));
+ const first=chooseNextScenario(player,{base:roundBase(),consistency:CONSISTENCY_TESTS,consequence:CONSEQUENCE_SCENARIOS});
+ if(!first)return alert('The scenario director could not start.');
+ plan.push(applyGenderVariant({...first.question,directorSource:first.source,directorReason:first.reason},player.gender));
+ show('game');renderQuestion();
+}
+function submitDuelRoundOnline(){
+ show('duelWaiting');
+ socket.emit('duelSubmit',{room:duelRoom,player,roundStartSnapshot});
+}
+socket.on('duelRoundResult',({submissions})=>{
+ const mine=submissions.find(s=>s.id===socket.id);
+ const other=submissions.find(s=>s.id!==socket.id);
+ if(!mine||!other)return;
+ player=mine.player;duelPartnerSnapshot=other;
+ const ga=roundScore(mine.player,mine.roundStartSnapshot),gb=roundScore(other.player,other.roundStartSnapshot);
+ show('roundReport');
+ $('roundTitle').textContent=`Round ${roundNumber} — Both Players Complete`;
+ $('roundIntro').textContent='Both of you completed this round privately and simultaneously. Here is the comparison.';
+ $('roundBody').innerHTML=`<div class="grid"><div class="card center"><div class="small">${esc(mine.name)} (You)</div><div class="roundscore">${ga.roundGpa.toFixed(1)}</div><span class="pill">${ga.roundLetter} · ${ga.roundPercent}%</span><p class="small">Cumulative ${ga.gpa.toFixed(1)} GPA</p></div><div class="card center"><div class="small">${esc(other.name)}</div><div class="roundscore">${gb.roundGpa.toFixed(1)}</div><span class="pill">${gb.roundLetter} · ${gb.roundPercent}%</span><p class="small">Cumulative ${gb.gpa.toFixed(1)} GPA</p></div></div><div class="card"><b>Alignment signal:</b> ${comparisonSummary(mine.player,other.player).alignment}%<p class="note">Differences are conversation points, not automatic verdicts.</p></div>`;
+ $('roundContinue').textContent=`Continue to Round ${roundNumber+1}`;
+ $('roundContinue').onclick=()=>{if(duelIsHost)socket.emit('duelContinue',{room:duelRoom});else alert('Waiting for the host to continue to the next round.')};
+ $('roundEnd').textContent='End Journey & View Final Report';
+ $('roundEnd').onclick=()=>finishDuelOnline();
+});
+socket.on('duelNextRound',()=>{
+ roundNumber++;index=0;plan=[];waiting=false;
+ roundStartSnapshot=JSON.parse(JSON.stringify(player));
+ const first=chooseNextScenario(player,{base:roundBase(),consistency:CONSISTENCY_TESTS,consequence:CONSEQUENCE_SCENARIOS});
+ if(!first){finishDuelOnline();return}
+ plan.push(applyGenderVariant({...first.question,directorSource:first.source,directorReason:first.reason},player.gender));
+ show('game');renderQuestion();
+});
+function finishDuelOnline(){
+ if(!duelPartnerSnapshot){finishSingle();return}
+ const b=duelPartnerSnapshot.player;
+ const ia=buildIntelligenceReport(player),ib=buildIntelligenceReport(b),cmp=comparisonSummary(player,b);
+ show('report');
+ $('reportTitle').textContent='Your Two-Person Relationship Intelligence Report';
+ $('reportIntro').textContent='The comparison highlights alignment and tension. A difference is not automatically a red flag; it tells you where an honest conversation is needed.';
+ $('reportBody').innerHTML=renderPlayerReport(player,ia)+renderPlayerReport(b,ib)+renderComparison(cmp);
+}
 function renderMulti(){resetPause();const bank=roundBase();const q=bank[index%bank.length];$('cat').textContent=q.category;$('num').textContent=`Round ${roundNumber} · Scenario ${index+1} / ${roundSize}`;$('bar').style.width=((index%bank.length+1)/Math.min(roundSize,bank.length)*100)+'%';$('privacy').textContent='🔒 Your answer is private until the round closes.';$('q').textContent=q.prompt; $('qi').innerHTML=`<b>Why this matters:</b> ${esc(q.intelligence?.biblicalPrinciple||'Use wisdom, love and responsibility.')}<br><span class="small">Biblical anchors: ${esc((q.intelligence?.scriptureRefs||[]).join(', '))} · Stakes: ${esc(q.intelligence?.stakes||'low')}</span>`; $('qi').classList.remove('hidden'); $('feedback').classList.add('hidden');$('reflection').classList.add('hidden');$('continue').classList.add('hidden');$('opts').innerHTML=shuffledOptions(q).map(({o,i})=>`<button class="opt" data-i="${i}">${esc(o.text)}</button>`).join('');document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>multiPick(Number(b.dataset.i)))}
 function multiPick(i){if(paused)return;document.querySelectorAll('.opt').forEach(b=>b.disabled=true);const bank=roundBase(),q=bank[index%bank.length],o=q.options[i],points=Math.max(0,Object.values(o.effects||{}).reduce((a,b)=>a+b,0));socket.emit('answer',{room,answer:i,metadata:{points,dimensionEffects:o.effects||{},flag:o.flag||null,evidence:o.evidence||null}})}
 socket.on('roundComplete',r=>{multiRoundWaiting=true;show('roundReport');$('roundTitle').textContent=`Round ${roundNumber} Complete`;$('roundIntro').textContent='Everyone has answered. Scores are displayed now. The host can continue, or anyone can end their journey on their own device.';$('roundBody').innerHTML='<div class="card"><h3>Round score</h3>'+r.scores.map(p=>`<p><b>${esc(p.name)}</b> — ${p.score} wisdom points</p>`).join('')+'</div><p class="note">Compare reasons, not personalities. A score is feedback on decisions in this round—not a measure of human worth or marriage suitability.</p>';$('roundContinue').textContent=`Continue to Round ${roundNumber+1}`;$('roundContinue').onclick=()=>mode==='multi'?continueMultiRound():continueRound();$('roundEnd').onclick=()=>mode==='multi'?endMultiJourney():endJourney();$('roundContinue').disabled=false;});
