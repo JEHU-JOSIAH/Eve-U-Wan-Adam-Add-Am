@@ -245,3 +245,13 @@ Studied a compiled document of recorded relationship teaching from six ministers
   - For Women +3 (dignity without shrinking; building your own financial base; not making a husband into a substitute for God)
 
 `MEDITATION_SOURCES` now credits 13 sources total. Every new scripture reference — including several less commonly quoted ones (Haggai 2:8, Genesis 18:19, Mark 10:8-9, 1 Thessalonians 5:21, and others) — was independently verified against multiple KJV sources for exact wording before use. Full module reloaded and validated: 67 unique IDs, all mapped to valid categories, zero duplicate scripture references across the entire set.
+
+## Critical fix: questions/scenarios not displaying (this update)
+
+Found while generating a screenshot of the solo question screen, and it explains every symptom reported earlier ("questions not displaying" in solo, 2-player, and group modes; "resume it will not").
+
+**Root cause:** `.hidden{display:none}` was declared early in the stylesheet. `.pauseOverlay{...display:flex...}` (added for the Pause feature) was declared later, with identical CSS specificity (one class each). When two rules tie on specificity, the one that comes later in the source wins — so `.pauseOverlay` always overrode `.hidden`, regardless of whether the `hidden` class was actually present on the element. The practical effect: the "Session Paused" overlay was permanently visible on top of the entire game screen, in every mode, from the very first scenario onward — covering the question and options completely — and toggling the `hidden` class via the Resume button changed nothing, because the later CSS rule won regardless.
+
+**Fix:** `.hidden{display:none!important}` — the utility class now always wins regardless of source order or any other rule's specificity, which is the standard, robust way to guarantee a `.hidden` utility class actually hides things.
+
+Verified by rendering an actual screenshot of the solo question screen before and after the fix: before, the paused overlay covered the entire card; after, the question, "Why this matters" panel, and all four options render correctly and are fully visible.
