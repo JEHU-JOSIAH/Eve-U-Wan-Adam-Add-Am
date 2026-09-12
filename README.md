@@ -255,3 +255,20 @@ Found while generating a screenshot of the solo question screen, and it explains
 **Fix:** `.hidden{display:none!important}` — the utility class now always wins regardless of source order or any other rule's specificity, which is the standard, robust way to guarantee a `.hidden` utility class actually hides things.
 
 Verified by rendering an actual screenshot of the solo question screen before and after the fix: before, the paused overlay covered the entire card; after, the question, "Why this matters" panel, and all four options render correctly and are fully visible.
+
+## Meditation — second wave, deeper mining of the same source (this update)
+
+Went back through the full "Inspired Messages of Men of GOD" document a second time — it turned out only a fraction of it had been used. Found substantial unused material from Rev. Dr. Sam Oye's "12 Principles" and "12 Love Codes" teachings specifically (bank-account-of-trust metaphor, mind-over-mouth, the sandwich approach to correction, love keeping no record of wrongs, demonstrable love, kindness over revenge, and more), plus a few remaining threads from the other five sources.
+
+**Meditation grew from 67 entries in 10 categories to 81 entries in 11 categories:**
+
+- **One more new category: Communication** (4 entries) — mind over mouth, listening to understand rather than to reply, the "sandwich approach" to correction, and saying love out loud instead of assuming it's understood.
+- **Ten more entries spread across existing categories:**
+  - Waiting +1 (become the right person, rather than just listing requirements for someone else)
+  - Dating +2 (secrecy in the dark eventually comes to light; what you celebrate grows)
+  - Married +3 (love keeps no record of wrongs; love like the sun, unconditional and constant; if you don't work on it, it won't work out)
+  - Guidance +2 (refusing to descend to someone else's level; curating what you dwell on)
+  - Vision +1 (a marriage aimed at something bigger than itself)
+  - Family Roots +1 (the relationship bank account — deposits and withdrawals)
+
+Same rules as every prior expansion: no text copied, only themes used as a map for original writing, and every new scripture reference (including several less commonly quoted — Revelation 3:19, Luke 6:38, 1 Corinthians 15:58) independently verified against multiple KJV sources before use. Full module reloaded and validated: 81 unique IDs, all valid categories, zero duplicate scripture references across the entire set.
