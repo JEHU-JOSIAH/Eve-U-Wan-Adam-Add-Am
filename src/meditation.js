@@ -44,7 +44,8 @@ export const MEDITATION_CATEGORIES = [
   { id: 'for-men', label: 'For Men', icon: '🛡️', tagline: 'Identity, rest and leadership that comes from character, not performance.' },
   { id: 'for-women', label: 'For Women', icon: '💎', tagline: 'Worth, discernment and destiny that were never on loan from a man.' },
   { id: 'money', label: 'Money & Marriage', icon: '💰', tagline: 'Money habits are relationship habits — handle both with the same integrity.' },
-  { id: 'roots', label: 'Family Roots', icon: '🌳', tagline: 'You didn\u2019t choose the family that raised you. You do choose what you pass on.' }
+  { id: 'roots', label: 'Family Roots', icon: '🌳', tagline: 'You didn\u2019t choose the family that raised you. You do choose what you pass on.' },
+  { id: 'communication', label: 'Communication', icon: '💬', tagline: 'Most conflicts are not solved by better arguments. They are solved by someone finally feeling heard.' }
 ];
 
 export const MEDITATIONS = [
@@ -111,6 +112,13 @@ export const MEDITATIONS = [
     scriptureRef: 'Proverbs 18:24 (KJV)',
     scriptureText: 'A man that hath friends must shew himself friendly: and there is a friend that sticketh closer than a brother.',
     prompt: 'Setting the romantic attraction aside for a moment, would you describe this person as a genuine friend?'
+  },
+  {
+    id: 'wait-10', category: 'waiting', title: 'Become the Right Person',
+    reflection: "It is tempting to spend the waiting season making a mental list of everything the future spouse needs to be. It is far more productive to spend it asking what kind of person you are actually becoming. A relationship rarely rises higher than the character of the people entering it — growing your own integrity, patience and faith does more to attract and sustain a healthy partner than any amount of demanding perfection from someone else ever will.",
+    scriptureRef: 'Ephesians 5:1 (KJV)',
+    scriptureText: 'Be ye therefore followers of God, as dear children.',
+    prompt: 'If your future spouse showed up today, would the person you currently are be someone worth marrying?'
   },
 
   // ---------------- DATING ----------------
@@ -183,6 +191,20 @@ export const MEDITATIONS = [
     scriptureRef: '2 Corinthians 13:1 (KJV)',
     scriptureText: 'This is the third time I am coming to you. In the mouth of two or three witnesses shall every word be established.',
     prompt: 'What do you actually know about this person from independent evidence, versus what you have simply assumed or been told by them alone?'
+  },
+  {
+    id: 'date-11', category: 'dating', title: 'What Happens in the Dark Eventually Comes to Light',
+    reflection: "Secrecy in the early stages of a relationship rarely stays contained to one small thing. A habit of hiding conversations, finances, or other relationships from a partner tends to expand quietly over time, because concealment gets easier the more it is practiced. Genuine intimacy cannot be built in the dark — it needs the kind of transparency that is willing to be seen fully, not managed carefully.",
+    scriptureRef: 'Luke 12:2 (KJV)',
+    scriptureText: 'For there is nothing covered, that shall not be revealed; neither hid, that shall not be known.',
+    prompt: 'Is there anything currently being managed or hidden in this relationship that would change things if it came fully into the light?'
+  },
+  {
+    id: 'date-12', category: 'dating', title: 'What You Celebrate, Grows',
+    reflection: "It is easy to notice what a partner gets wrong and rarely mention what they get right. But attention is a kind of investment — whatever gets consistently celebrated in a relationship tends to grow, and whatever only gets criticized tends to wither or go into hiding. Intentionally celebrating a partner's effort, not just the results they produce, shapes the whole emotional climate of how a relationship develops.",
+    scriptureRef: 'Psalm 103:2 (KJV)',
+    scriptureText: 'Bless the LORD, O my soul, and forget not all his benefits.',
+    prompt: 'What has this person done recently that deserved genuine celebration, and did you actually say so?'
   },
 
   // ---------------- ENGAGED ----------------
@@ -272,6 +294,27 @@ export const MEDITATIONS = [
     scriptureText: 'And they twain shall be one flesh: so then they are no more twain, but one flesh. What therefore God hath joined together, let not man put asunder.',
     prompt: 'Where has outside input on your marriage quietly become outside control?'
   },
+  {
+    id: 'mar-07', category: 'married', title: 'Love Keeps No Record of Wrongs',
+    reflection: "It is possible to forgive an argument out loud and still privately keep a running tally of it — filed away for the next disagreement. Real peace does not come from having nothing to be offended by; it comes from loving something more than your right to stay offended. A marriage that keeps score eventually turns every fresh conflict into a courtroom of past ones.",
+    scriptureRef: 'Psalm 119:165 (KJV)',
+    scriptureText: 'Great peace have they which love thy law: and nothing shall offend them.',
+    prompt: 'Is there an old offense you have said you forgave, that you are still quietly keeping on file?'
+  },
+  {
+    id: 'mar-08', category: 'married', title: 'Love Like the Sun',
+    reflection: "The sun does not dim on the days no one thanks it for shining. Love that only shows up when it is appreciated, reciprocated, or convenient is really just a transaction wearing love's name. The kind of love a marriage actually needs to survive its hardest seasons is the kind that keeps shining on principle, not on performance review.",
+    scriptureRef: '1 Corinthians 13:8 (KJV)',
+    scriptureText: 'Charity never faileth.',
+    prompt: 'Has your love toward your spouse lately been conditional on how appreciated it felt?'
+  },
+  {
+    id: 'mar-09', category: 'married', title: 'If You Don\u2019t Work On It, It Won\u2019t Work Out',
+    reflection: "A good marriage is not evidence that two people got lucky with compatibility; it is usually evidence that two people kept choosing to do the unglamorous work — the hard conversation, the repeated apology, the deliberate date night, the daily small kindness. Marriages rarely fail from one dramatic event. They usually fade from ordinary neglect, one skipped effort at a time.",
+    scriptureRef: '1 Corinthians 15:58 (KJV)',
+    scriptureText: 'Therefore, my beloved brethren, be ye stedfast, unmoveable, always abounding in the work of the Lord, forasmuch as ye know that your labour is not in vain in the Lord.',
+    prompt: 'What is one specific, unglamorous effort your marriage has quietly stopped receiving from you?'
+  },
 
   // ---------------- GUIDANCE ----------------
   {
@@ -323,6 +366,20 @@ export const MEDITATIONS = [
     scriptureText: 'Remember ye not the former things, neither consider the things of old. Behold, I will do a new thing; now it shall spring forth; shall ye not know it?',
     prompt: 'What from a former season is still quietly occupying space that a new season actually needs?'
   },
+  {
+    id: 'guide-08', category: 'guidance', title: 'Refuse to Descend',
+    reflection: "There is a real temptation, when someone treats you unfairly, to answer them on their own level — matching pettiness with pettiness, cruelty with cruelty. It rarely produces anything but two people behaving the same badly. Restraint in the face of provocation is not weakness; it is often the only thing that keeps a conflict from escalating into something neither person can undo.",
+    scriptureRef: 'Proverbs 26:4 (KJV)',
+    scriptureText: 'Answer not a fool according to his folly, lest thou also be like unto him.',
+    prompt: 'Where have you recently been tempted to match someone\u2019s bad behavior instead of simply refusing to descend to it?'
+  },
+  {
+    id: 'guide-09', category: 'guidance', title: 'Curate What You Dwell On',
+    reflection: "Bitterness and clarity rarely occupy the mind at the same time — whichever one you keep feeding tends to crowd the other out. What gets replayed mentally, especially about a partner or a past hurt, is not a neutral habit; it actively shapes what you notice, expect, and eventually act on. Guarding your thought life is not denial. It is choosing which voice gets to keep speaking.",
+    scriptureRef: 'Philippians 4:8 (KJV)',
+    scriptureText: 'Finally, brethren, whatsoever things are true, whatsoever things are honest, whatsoever things are just, whatsoever things are pure, whatsoever things are lovely, whatsoever things are of good report; if there be any virtue, and if there be any praise, think on these things.',
+    prompt: 'What thought have you been replaying lately that is shaping how you see someone more than the actual facts do?'
+  },
 
   // ---------------- VISION ----------------
   {
@@ -359,6 +416,13 @@ export const MEDITATIONS = [
     scriptureRef: 'Genesis 18:19 (KJV)',
     scriptureText: 'For I know him, that he will command his children and his household after him, and they shall keep the way of the LORD.',
     prompt: 'Does your household currently run on a direction you have actually communicated, or on assumption and habit?'
+  },
+  {
+    id: 'vision-06', category: 'vision', title: 'A Marriage Aimed at Something Bigger Than Itself',
+    reflection: "A relationship that exists purely to make its two members happy tends to become fragile the moment happiness dips, because it has nothing bigger to fall back on. A relationship aimed at something beyond itself — raising secure children, serving a community, living out a shared faith — has a reason to keep showing up for each other even in the seasons where the feelings are not doing much of the work.",
+    scriptureRef: 'Matthew 28:19-20 (KJV)',
+    scriptureText: 'Go ye therefore, and teach all nations\u2026 and, lo, I am with you alway, even unto the end of the world.',
+    prompt: 'What is your relationship actually aimed at beyond the happiness of the two people in it?'
   },
 
   // ---------------- FOR MEN ----------------
@@ -535,6 +599,43 @@ export const MEDITATIONS = [
     scriptureRef: 'Hebrews 12:15 (KJV)',
     scriptureText: 'Looking diligently lest any man fail of the grace of God; lest any root of bitterness springing up trouble you, and thereby many be defiled.',
     prompt: 'Is there a root of bitterness from your family history that may still be quietly shaping how you relate to others?'
+  },
+  {
+    id: 'roots-06', category: 'roots', title: 'The Relationship Bank Account',
+    reflection: "Every relationship works a little like an account. Honesty, affection, kept promises and small kindnesses are deposits. Criticism, broken word and betrayal are withdrawals. A relationship with years of consistent deposits can usually absorb a hard season without collapsing; a relationship already running on empty cannot survive even a small withdrawal. Whatever pattern of giving and taking you watched growing up, you get to decide what your own account actually runs on.",
+    scriptureRef: 'Luke 6:38 (KJV)',
+    scriptureText: 'Give, and it shall be given unto you; good measure, pressed down, and shaken together, and running over, shall men give into your bosom. For with the same measure that ye mete withal it shall be measured to you again.',
+    prompt: 'Has your relationship account lately had more deposits going in, or more withdrawals coming out?'
+  },
+
+  // ---------------- COMMUNICATION ----------------
+  {
+    id: 'comm-01', category: 'communication', title: 'Mind Over Mouth',
+    reflection: "Almost every word that later needed an apology was said faster than it was thought through. The gap between an impulse to speak and the actual words leaving your mouth is where wisdom does its work — deciding whether a thought deserves to be spoken at all, and if so, how. Quick reactions feel honest in the moment; they are just as often only reckless.",
+    scriptureRef: 'James 1:19 (KJV)',
+    scriptureText: 'Wherefore, my beloved brethren, let every man be swift to hear, slow to speak, slow to wrath.',
+    prompt: 'What is something you said recently that would have benefited from a longer pause between thought and mouth?'
+  },
+  {
+    id: 'comm-02', category: 'communication', title: 'Listen to Understand, Not to Reply',
+    reflection: "There is a specific, common failure that looks like listening but is not: nodding along while actually just waiting for the other person to stop talking so you can say what you already decided to say. Real listening changes you a little — it lets what the other person said actually land before you respond to it. Most conflicts are not solved by better arguments. They are solved by someone finally feeling heard.",
+    scriptureRef: 'Proverbs 18:13 (KJV)',
+    scriptureText: 'He that answereth a matter before he heareth it, it is folly and shame unto him.',
+    prompt: 'In your last disagreement, were you genuinely listening, or were you mainly waiting for your turn?'
+  },
+  {
+    id: 'comm-03', category: 'communication', title: 'The Sandwich Approach to Correction',
+    reflection: "Correction lands very differently depending on how it arrives. Criticism dropped with no context tends to be heard as an attack, even when it is accurate. Correction wrapped in genuine commendation — naming something real that is working, addressing the concern clearly, and closing with sincere affirmation — tends to actually be received, because it makes clear the relationship is not under threat, only the specific issue is.",
+    scriptureRef: 'Revelation 3:19 (KJV)',
+    scriptureText: 'As many as I love, I rebuke and chasten: be zealous therefore, and repent.',
+    prompt: 'The last time you corrected your partner, did it feel like an attack on them, or a specific concern from someone clearly for them?'
+  },
+  {
+    id: 'comm-04', category: 'communication', title: 'Say It Before Silence Says It For You',
+    reflection: "Feeling love and communicating it are not the same action, and a relationship only really has access to the second one. Affection that stays entirely internal — never spoken, never demonstrated — is functionally invisible to the person who needed to receive it. Silence has a way of getting interpreted as absence, even when the feeling was real the whole time.",
+    scriptureRef: '1 John 3:18 (KJV)',
+    scriptureText: 'My little children, let us not love in word, neither in tongue; but in deed and in truth.',
+    prompt: 'What love have you been feeling but not actually expressing in words or action lately?'
   }
 ];
 
