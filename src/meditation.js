@@ -6,17 +6,20 @@
 // Difference", "Dating: A Biblical Guide"), David O. Oyedepo ("In Pursuit of Vision"),
 // T.D. Jakes ("T.D. Jakes Speaks to Men", "Daddy Loves His Girls"), and recorded relationship
 // messages from Rev. Dr. Sam Oye, Apostle Joshua Selman, Pastor Kingsley & Mildred
-// Okonkwo, Bishop Funke Felix-Adejumo, and Dr. Paul & Pastor Becky Enenche.
+// Okonkwo, Bishop Funke Felix-Adejumo, Dr. Paul & Pastor Becky Enenche, Dr. Love Oyedepo
+// Ogah, Pastor Korede Komaiya, Joel Osteen, Serita Jakes, Apostle Emmanuel Iren, Pastor
+// David Ibiyeomie, Pastor Philip Olubakin, Apostle Michael Orokpo, The Winlos (Anwinli
+// Ojeikere), Funmi Olubakin, Pastor E.A. Adeboye, and Bishop David Abioye.
 // These are NOT excerpts or reproductions of those books or messages — no text from those
 // copyrighted works is copied here; only the general subject areas they teach on (e.g.
 // "singleness as a purposeful season", "peace as a test of guidance", "a marriage needs a
 // shared vision", "a man's identity apart from performance", "a woman's identity apart from
 // a father's absence", "money mindsets in marriage", "generational family patterns",
-// "levels of relationship", "what a man provides beyond money") inspired which topics to
-// write about, in entirely original wording. Each entry pairs an original short reflection
-// with a full King James Version scripture passage (public domain) and a question to
-// journal or discuss. Readers who want the teachers' own words are encouraged to seek out
-// the original books and messages.
+// "levels of relationship", "what a man provides beyond money", "red flags in courtship",
+// "the order of discernment") inspired which topics to write about, in entirely original
+// wording. Each entry pairs an original short reflection with a full King James Version
+// scripture passage (public domain) and a question to journal or discuss. Readers who want
+// the teachers' own words are encouraged to seek out the original books and messages.
 
 export const MEDITATION_SOURCES = [
   { name: 'Waiting and Dating', author: 'Myles Munroe' },
@@ -31,7 +34,19 @@ export const MEDITATION_SOURCES = [
   { name: 'Destiny Doors & Destiny Relationships (recorded teaching)', author: 'Apostle Joshua Selman' },
   { name: 'Marriage & Money Mindsets (recorded teaching)', author: 'Pastor Kingsley & Mildred Okonkwo' },
   { name: 'Faith, Marriage & Ministry conversation (recorded teaching)', author: 'Bishop Funke Felix-Adejumo' },
-  { name: 'Godly Marital Relationships (recorded teaching)', author: 'Dr. Paul & Pastor Becky Enenche' }
+  { name: 'Godly Marital Relationships (recorded teaching)', author: 'Dr. Paul & Pastor Becky Enenche' },
+  { name: 'Foundations for a Lasting Marriage (recorded teaching)', author: 'Dr. Love Oyedepo Ogah' },
+  { name: 'Preparing for Marital Destiny (recorded teaching)', author: 'Pastor Korede Komaiya' },
+  { name: 'Conversation on Faith & Resilience (recorded teaching)', author: 'Joel Osteen' },
+  { name: 'Winning at Home (recorded teaching)', author: 'Bishop T.D. Jakes & Serita Jakes' },
+  { name: 'Emotional Intelligence in Marriage (recorded teaching)', author: 'Apostle Emmanuel Iren' },
+  { name: 'Secrets of Lasting Relationships (recorded teaching)', author: 'Pastor David Ibiyeomie' },
+  { name: 'Dating Intelligently and Biblically (recorded teaching)', author: 'Pastor Philip Olubakin' },
+  { name: 'Red Flags in Courtship (recorded teaching)', author: 'Apostle Michael Orokpo' },
+  { name: 'Finding the Suitable One (recorded teaching)', author: 'The Winlos (Anwinli Ojeikere)' },
+  { name: 'Biblical Roles in Marriage (recorded teaching)', author: 'Funmi Olubakin' },
+  { name: 'The Mathematics of Marriage (recorded teaching)', author: 'Pastor E.A. Adeboye' },
+  { name: 'Preparing Singles for Marriage (recorded teaching)', author: 'Bishop David Abioye' }
 ];
 
 export const MEDITATION_CATEGORIES = [
@@ -45,7 +60,8 @@ export const MEDITATION_CATEGORIES = [
   { id: 'for-women', label: 'For Women', icon: '💎', tagline: 'Worth, discernment and destiny that were never on loan from a man.' },
   { id: 'money', label: 'Money & Marriage', icon: '💰', tagline: 'Money habits are relationship habits — handle both with the same integrity.' },
   { id: 'roots', label: 'Family Roots', icon: '🌳', tagline: 'You didn\u2019t choose the family that raised you. You do choose what you pass on.' },
-  { id: 'communication', label: 'Communication', icon: '💬', tagline: 'Most conflicts are not solved by better arguments. They are solved by someone finally feeling heard.' }
+  { id: 'communication', label: 'Communication', icon: '💬', tagline: 'Most conflicts are not solved by better arguments. They are solved by someone finally feeling heard.' },
+  { id: 'redflags', label: 'Red Flags', icon: '🚩', tagline: 'Discernment sees the flag before the storm — and takes it seriously.' }
 ];
 
 export const MEDITATIONS = [
@@ -119,6 +135,13 @@ export const MEDITATIONS = [
     scriptureRef: 'Ephesians 5:1 (KJV)',
     scriptureText: 'Be ye therefore followers of God, as dear children.',
     prompt: 'If your future spouse showed up today, would the person you currently are be someone worth marrying?'
+  },
+  {
+    id: 'wait-11', category: 'waiting', title: 'Marriage Will Not Complete You',
+    reflection: "It is a lot of pressure to place on another human being to be the missing half of your identity. A relationship built on that expectation eventually resents whoever failed to deliver it, because no person was ever built to complete another person — only to walk alongside someone already becoming whole. The waiting season is exactly when that wholeness gets built, so marriage can be a joining of two complete people rather than a rescue mission for an incomplete one.",
+    scriptureRef: 'Colossians 2:10 (KJV)',
+    scriptureText: 'And ye are complete in him, which is the head of all principality and power.',
+    prompt: 'Are you currently whole in yourself, or waiting for someone else to arrive and make you whole?'
   },
 
   // ---------------- DATING ----------------
@@ -206,6 +229,20 @@ export const MEDITATIONS = [
     scriptureText: 'Bless the LORD, O my soul, and forget not all his benefits.',
     prompt: 'What has this person done recently that deserved genuine celebration, and did you actually say so?'
   },
+  {
+    id: 'date-13', category: 'dating', title: 'The Order of Discernment',
+    reflection: "There is a useful sequence to how a serious conviction about someone should actually settle: first a quiet inner sense that this person matters, then genuine reflection and reasoning that examines whether that sense actually holds up, and only after both of those, the physical and practical confirmation. Skipping straight to physical attraction and working backward tends to produce decisions that feel right for a season and fall apart under scrutiny.",
+    scriptureRef: 'Romans 12:2 (KJV)',
+    scriptureText: 'And be not conformed to this world: but be ye transformed by the renewing of your mind, that ye may prove what is that good, and acceptable, and perfect, will of God.',
+    prompt: 'Did your conviction about this relationship form in that order, or did attraction arrive first and reasoning get recruited afterward to justify it?'
+  },
+  {
+    id: 'date-14', category: 'dating', title: 'The Longer-Throat Trap',
+    reflection: "There is a particular kind of searching that never actually stops, because it is not really looking for a person — it is chasing the feeling of something better always being one option away. Knowing what you are actually looking for, grounded in real values rather than an endless comparison game, allows you to recognize someone genuinely good without holding out indefinitely for an upgrade that was never coming.",
+    scriptureRef: 'Hebrews 13:5 (KJV)',
+    scriptureText: 'Let your conversation be without covetousness; and be content with such things as ye have.',
+    prompt: 'Are you evaluating this relationship on its own merits, or against a moving target of something hypothetically better?'
+  },
 
   // ---------------- ENGAGED ----------------
   {
@@ -249,6 +286,20 @@ export const MEDITATIONS = [
     scriptureRef: 'James 1:22 (KJV)',
     scriptureText: 'But be ye doers of the word, and not hearers only, deceiving your own selves.',
     prompt: 'What is one piece of counsel you and your fiancé(e) have received but not yet actually practiced?'
+  },
+  {
+    id: 'eng-07', category: 'engaged', title: 'The Five Pillars',
+    reflection: "Devotion, discipline, discussion, determination and direction are not romantic words, but they are what actually carries a marriage past its first hard year. Devotion is quality time protected on purpose. Discipline is self-control that refuses to become someone's daily irritation. Discussion is talking honestly about the things couples usually avoid. Determination is choosing to stay committed when it stops being easy. Direction is planning the future instead of drifting into it. A wedding needs one of these. A marriage needs all five.",
+    scriptureRef: '1 Corinthians 14:40 (KJV)',
+    scriptureText: 'Let all things be done decently and in order.',
+    prompt: 'Of devotion, discipline, discussion, determination and direction, which one has had the least actual attention in your engagement?'
+  },
+  {
+    id: 'eng-08', category: 'engaged', title: 'A Wisdom Crisis, Not Just a Spiritual One',
+    reflection: "It is tempting to treat every marital struggle as purely spiritual warfare, needing only prayer to resolve. Many struggles are actually wisdom crises — a couple simply never learned practical skills like budgeting, fair conflict resolution, or honest communication. Prayer and wisdom are not competitors; a couple that prays fervently and also builds real skill is in a very different position than one relying on prayer alone to fix what practical wisdom was meant to address.",
+    scriptureRef: 'Proverbs 4:7 (KJV)',
+    scriptureText: 'Wisdom is the principal thing; therefore get wisdom: and with all thy getting get understanding.',
+    prompt: 'What specific practical skill — not a spiritual issue — does your relationship actually need to learn?'
   },
 
   // ---------------- MARRIED ----------------
@@ -315,6 +366,27 @@ export const MEDITATIONS = [
     scriptureText: 'Therefore, my beloved brethren, be ye stedfast, unmoveable, always abounding in the work of the Lord, forasmuch as ye know that your labour is not in vain in the Lord.',
     prompt: 'What is one specific, unglamorous effort your marriage has quietly stopped receiving from you?'
   },
+  {
+    id: 'mar-10', category: 'married', title: 'Correct, Don\u2019t Criticize',
+    reflection: "There is a real difference between addressing a specific action and attacking a person's character. Criticism says something is wrong with who you are. Correction says something is wrong with what just happened, offered by someone clearly still on your side. The first invites defensiveness; the second, delivered gently, actually has a chance of being received and changing something.",
+    scriptureRef: 'Galatians 6:1 (KJV)',
+    scriptureText: 'Brethren, if a man be overtaken in a fault, ye which are spiritual, restore such an one in the spirit of meekness; considering thyself, lest thou also be tempted.',
+    prompt: 'The last time you raised an issue with your spouse, did it sound like correction or like an attack on their character?'
+  },
+  {
+    id: 'mar-11', category: 'married', title: 'No Angels in Marriage',
+    reflection: "Every spouse is fully human, which means every marriage includes disappointment somewhere along the way. The real question is not whether your spouse will fall short of perfect, but what your words do with that shortfall — whether they are used to help someone rise a little higher, or to remind them exactly how far they have fallen.",
+    scriptureRef: 'Proverbs 18:21 (KJV)',
+    scriptureText: 'Death and life are in the power of the tongue: and they that love it shall eat the fruit thereof.',
+    prompt: 'Have your recent words to your spouse been building them up or quietly tearing them down?'
+  },
+  {
+    id: 'mar-12', category: 'married', title: 'Water Your Own Garden',
+    reflection: "Comparing your marriage to someone else's highlight reel is a reliable way to feel dissatisfied with something that may actually be healthy. Every marriage has its own weeds and its own seasons. Time spent envying another couple's garden is time not spent tending the one you actually have.",
+    scriptureRef: 'Song of Solomon 4:12 (KJV)',
+    scriptureText: 'A garden inclosed is my sister, my spouse; a spring shut up, a fountain sealed.',
+    prompt: 'What comparison to another couple has been quietly stealing your contentment with your own marriage?'
+  },
 
   // ---------------- GUIDANCE ----------------
   {
@@ -380,6 +452,20 @@ export const MEDITATIONS = [
     scriptureText: 'Finally, brethren, whatsoever things are true, whatsoever things are honest, whatsoever things are just, whatsoever things are pure, whatsoever things are lovely, whatsoever things are of good report; if there be any virtue, and if there be any praise, think on these things.',
     prompt: 'What thought have you been replaying lately that is shaping how you see someone more than the actual facts do?'
   },
+  {
+    id: 'guide-10', category: 'guidance', title: 'Own Your Response',
+    reflection: "Conflict often gets explained entirely in terms of what the other person did — their tone, their timing, their failure. But a response is always yours alone to own, shaped by your own insecurities and unmet desires as much as by anything the other person actually did. Taking responsibility for how you react does not excuse what someone else did wrong; it simply refuses to hand them control over your own behavior.",
+    scriptureRef: 'James 4:1 (KJV)',
+    scriptureText: 'From whence come wars and fightings among you? come they not hence, even of your lusts that war in your members?',
+    prompt: 'In your last conflict, how much of your reaction was actually caused by the other person, versus something already unresolved in you?'
+  },
+  {
+    id: 'guide-11', category: 'guidance', title: 'Wisdom Is Context-Specific',
+    reflection: "Real spiritual depth in one area of life does not automatically transfer to another. A person can be genuinely gifted, anointed, or successful in public ministry or career and still be undeveloped at home — because emotional maturity in a marriage is its own specific skill, not a byproduct of general spiritual maturity. Growth in one room of a life has to be pursued in every room, not assumed to have spread there on its own.",
+    scriptureRef: '2 Timothy 3:5 (KJV)',
+    scriptureText: 'Having a form of godliness, but denying the power thereof: from such turn away.',
+    prompt: 'Where has your outward spiritual life outpaced your actual emotional maturity at home?'
+  },
 
   // ---------------- VISION ----------------
   {
@@ -423,6 +509,13 @@ export const MEDITATIONS = [
     scriptureRef: 'Matthew 28:19-20 (KJV)',
     scriptureText: 'Go ye therefore, and teach all nations\u2026 and, lo, I am with you alway, even unto the end of the world.',
     prompt: 'What is your relationship actually aimed at beyond the happiness of the two people in it?'
+  },
+  {
+    id: 'vision-07', category: 'vision', title: 'Marriage Is Meant to Make You Better, Not Just Happier',
+    reflection: "It is a common but costly misunderstanding to expect marriage to primarily deliver happiness, the way a good decision is supposed to reward you. Marriage was never mainly designed as a happiness machine — it is closer to a refining process, regularly exposing selfishness, impatience and pride so they can actually be dealt with. Couples who expect only happiness often panic at the first real friction. Couples who expect refinement recognize the friction as the process working as intended.",
+    scriptureRef: 'Romans 8:29 (KJV)',
+    scriptureText: 'For whom he did foreknow, he also did predestinate to be conformed to the image of his Son.',
+    prompt: 'Has a recent hard season in your relationship been read as a crisis, or as the refining it was actually meant to do?'
   },
 
   // ---------------- FOR MEN ----------------
@@ -475,6 +568,20 @@ export const MEDITATIONS = [
     scriptureText: 'For even the Son of man came not to be ministered unto, but to minister, and to give his life a ransom for many.',
     prompt: 'Is there a relationship in your life you have started treating as useful rather than as someone to genuinely serve?'
   },
+  {
+    id: 'men-08', category: 'for-men', title: 'Real Men Pour In',
+    reflection: "A father's or a husband's value was never meant to be measured only by what he provides financially. Presence — actual attention, emotional availability, showing up — is something no check can substitute for. But a man cannot pour into others from a well that has never been filled; if you were never poured into yourself, the place to start is being refilled by the Father who does not run dry, not pretending you have something you were never given.",
+    scriptureRef: 'John 15:9 (KJV)',
+    scriptureText: 'As the Father hath loved me, so have I loved you: continue ye in my love.',
+    prompt: 'Where has presence, not provision, been the thing actually missing from you lately?'
+  },
+  {
+    id: 'men-09', category: 'for-men', title: 'Fight for Her Honor',
+    reflection: "Part of a man's calling in his home is refusing to let anyone — family, friends, even his own careless words — disparage the woman he is with. Defending someone's dignity in front of others is not about controlling how people see her; it is about making sure she never has to wonder whether he is actually in her corner.",
+    scriptureRef: 'Nehemiah 4:14 (KJV)',
+    scriptureText: 'Remember the Lord, which is great and terrible, and fight for your brethren, your sons, and your daughters, your wives, and your houses.',
+    prompt: 'Has your spouse ever been disrespected in front of you without you actually stepping in?'
+  },
 
   // ---------------- FOR WOMEN ----------------
   {
@@ -526,6 +633,13 @@ export const MEDITATIONS = [
     scriptureText: 'Thou shalt have no other gods before me.',
     prompt: 'Is there a place in your heart currently expecting a man to be what only God was ever meant to be?'
   },
+  {
+    id: 'women-08', category: 'for-women', title: 'Respect Is Not Optional',
+    reflection: "Love and respect are not identical, and a marriage that only offers one of them stays perpetually unfinished. Respect is not about pretending a husband is flawless; it is choosing a tone and posture toward him — in private and in public — that honors the position he holds in your life, even in disagreement. It is one of the few things scripture treats as non-negotiable rather than optional.",
+    scriptureRef: 'Ephesians 5:33 (KJV)',
+    scriptureText: 'Nevertheless let every one of you in particular so love his wife even as himself; and the wife see that she reverence her husband.',
+    prompt: 'Would your husband describe your typical tone toward him as respectful, regardless of how the disagreement is going?'
+  },
 
   // ---------------- MONEY & MARRIAGE ----------------
   {
@@ -562,6 +676,13 @@ export const MEDITATIONS = [
     scriptureRef: 'Proverbs 21:20 (KJV)',
     scriptureText: 'There is treasure to be desired and oil in the dwelling of the wise; but a foolish man spendeth it up.',
     prompt: 'What percentage of what comes into your household is actually being set aside on purpose, rather than simply spent as it arrives?'
+  },
+  {
+    id: 'money-06', category: 'money', title: 'Honor Starts in the Heart, Ends in the Pocket',
+    reflection: "It is possible to feel genuine gratitude toward someone and still never let that gratitude cost you anything tangible. Real honor eventually shows up in something concrete — time, effort, or resources actually given, not just warm feelings kept privately. A household that only feels grateful, without that gratitude ever becoming action, is running on sentiment rather than honor.",
+    scriptureRef: 'Proverbs 3:9 (KJV)',
+    scriptureText: 'Honour the LORD with thy substance, and with the firstfruits of all thine increase.',
+    prompt: 'Is there someone you feel genuinely grateful toward, whose gratitude from you has never actually cost you anything?'
   },
 
   // ---------------- FAMILY ROOTS ----------------
@@ -607,6 +728,13 @@ export const MEDITATIONS = [
     scriptureText: 'Give, and it shall be given unto you; good measure, pressed down, and shaken together, and running over, shall men give into your bosom. For with the same measure that ye mete withal it shall be measured to you again.',
     prompt: 'Has your relationship account lately had more deposits going in, or more withdrawals coming out?'
   },
+  {
+    id: 'roots-07', category: 'roots', title: 'The Common Denominator',
+    reflection: "When conflict follows you across multiple relationships — different friends, different partners, the same recurring tension — it becomes worth asking an uncomfortable question: what is the one constant across every one of those relationships? Usually, it is you. That is not a condemnation; it is actually good news, because a pattern you contribute to is a pattern you have real power to change.",
+    scriptureRef: '2 Corinthians 13:5 (KJV)',
+    scriptureText: 'Examine yourselves, whether ye be in the faith; prove your own selves.',
+    prompt: 'Is there a conflict pattern that keeps showing up across several different relationships in your life?'
+  },
 
   // ---------------- COMMUNICATION ----------------
   {
@@ -636,6 +764,50 @@ export const MEDITATIONS = [
     scriptureRef: '1 John 3:18 (KJV)',
     scriptureText: 'My little children, let us not love in word, neither in tongue; but in deed and in truth.',
     prompt: 'What love have you been feeling but not actually expressing in words or action lately?'
+  },
+  {
+    id: 'comm-05', category: 'communication', title: 'Build With Words, Not Against Them',
+    reflection: "The same tongue that can pierce like a sword can also become a source of healing, depending entirely on which words get chosen in a heated moment. It takes no more effort to speak a healing word than a wounding one — the difference is not skill, it is intention. Every conversation is either laying a brick or knocking one out of a relationship's wall.",
+    scriptureRef: 'Proverbs 12:18 (KJV)',
+    scriptureText: 'There is that speaketh like the piercings of a sword: but the tongue of the wise is health.',
+    prompt: 'In your last hard conversation, were your words building the wall or knocking a brick out of it?'
+  },
+
+  // ---------------- RED FLAGS ----------------
+  {
+    id: 'rf-01', category: 'redflags', title: 'A Pattern of Lying',
+    reflection: "If someone's words already mean very little in small, low-stakes moments, there is no real reason to expect their vows to carry more weight at the altar. Integrity is not something that suddenly appears at a wedding; it is either already being practiced in the small daily honesty of a relationship, or it is not being practiced at all.",
+    scriptureRef: 'Luke 16:10 (KJV)',
+    scriptureText: 'He that is faithful in that which is least is faithful also in much: and he that is unjust in the least is unjust also in much.',
+    prompt: 'Has this person shown a pattern of small dishonesty that you have been quietly excusing?'
+  },
+  {
+    id: 'rf-02', category: 'redflags', title: 'An Undefined Source',
+    reflection: "Entering a relationship without any clarity about where someone's money, lifestyle or resources actually come from is not romantic trust — it is unexamined risk. It is possible to love someone genuinely and still owe it to yourself, and to them, to understand the real foundation of the life you are being invited to join.",
+    scriptureRef: '1 Timothy 6:9-10 (KJV)',
+    scriptureText: 'But they that will be rich fall into temptation and a snare, and into many foolish and hurtful lusts\u2026 For the love of money is the root of all evil.',
+    prompt: 'Is there anything about how this person acquires or handles money that you have never actually asked about?'
+  },
+  {
+    id: 'rf-03', category: 'redflags', title: 'Wrong Reasons Make Fragile Marriages',
+    reflection: "Marrying to escape loneliness, to prove a point to someone who hurt you, to satisfy family pressure, or because someone represents a financial shortcut are all decisions made in a hurry to solve a problem that a wedding was never actually designed to solve. A marriage entered for the wrong reason does not automatically fail, but it starts already carrying a weight it was never built to hold.",
+    scriptureRef: 'Proverbs 19:2 (KJV)',
+    scriptureText: 'Also, that the soul be without knowledge, it is not good; and he that hasteth with his feet sinneth.',
+    prompt: 'If you are honest, what is the real reason you want this relationship to become a marriage?'
+  },
+  {
+    id: 'rf-04', category: 'redflags', title: 'Restitution, Not Just Regret',
+    reflection: "Feeling sorry about a past pattern and actually closing that chapter are two different things. Real change usually leaves evidence — an old debt settled, a relationship properly ended, a habit visibly broken over time — not just a verbal promise that things are different now. Regret is a feeling. Restitution is proof.",
+    scriptureRef: '2 Corinthians 7:10 (KJV)',
+    scriptureText: 'For godly sorrow worketh repentance to salvation not to be repented of: but the sorrow of the world worketh death.',
+    prompt: 'Has this person\u2019s claimed change actually been demonstrated over time, or only stated?'
+  },
+  {
+    id: 'rf-05', category: 'redflags', title: 'See It and Step Back',
+    reflection: "Noticing a genuine warning sign and choosing to keep moving forward anyway is one of the most common ways people arrive at a crisis they later say they never saw coming — when, in fact, they saw it and simply hoped it would resolve itself. Wisdom is not cynicism; it is simply willing to take a real warning seriously before the cost becomes much higher.",
+    scriptureRef: 'Proverbs 27:12 (KJV)',
+    scriptureText: 'A prudent man foreseeth the evil, and hideth himself; but the simple pass on, and are punished.',
+    prompt: 'What warning sign have you already seen clearly, that you have been hoping will simply resolve itself?'
   }
 ];
 
